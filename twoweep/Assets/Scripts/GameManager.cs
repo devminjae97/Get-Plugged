@@ -10,8 +10,12 @@ public class GameManager : MonoBehaviour
     
     void Start() 
     {
+<<<<<<< HEAD
         Debug.Log("Start");
         Debug.Log("test_minjae");
+=======
+        Debug.Log("TEST!");
+>>>>>>> fe10bb4411e678d221113c1543a9a29a5b63d53a
         playerController1 = GameObject.Find("Player1").GetComponent<PlayerController>();
         playerController2 = GameObject.Find("Player2").GetComponent<PlayerController>();
     }
