@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     
     void Start() 
     {
+        Debug.Log("Start");
         playerController1 = GameObject.Find("Player1").GetComponent<PlayerController>();
         playerController2 = GameObject.Find("Player2").GetComponent<PlayerController>();
     }
