@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour 
@@ -20,8 +21,8 @@ public class GameManager : MonoBehaviour
         // fix : yang 2021-12-29
         try
         {
-            playerController1.transform.position = stages[LevelSelect.thisLevel - 1].transform.Find("StartFlag1").transform.position;
-            playerController2.transform.position = stages[LevelSelect.thisLevel - 1].transform.Find("StartFlag2").transform.position;
+            playerController1.transform.position = stages[PlayerPrefs.GetInt("levelSelected") - 1].transform.Find("StartFlag1").transform.position;
+            playerController2.transform.position = stages[PlayerPrefs.GetInt("levelSelected") - 1].transform.Find("StartFlag2").transform.position;
         }
         catch (System.ArgumentOutOfRangeException e)
         {
@@ -38,9 +39,9 @@ public class GameManager : MonoBehaviour
             // fix : yang 2021-12-29
             try
             {
-                playerController1.transform.position = stages[LevelSelect.thisLevel].transform.Find("StartFlag1").transform.position;
-                playerController2.transform.position = stages[LevelSelect.thisLevel].transform.Find("StartFlag2").transform.position;
-                LevelSelect.thisLevel += 1;
+                playerController1.transform.position = stages[PlayerPrefs.GetInt("levelSelected")].transform.Find("StartFlag1").transform.position;
+                playerController2.transform.position = stages[PlayerPrefs.GetInt("levelSelected")].transform.Find("StartFlag2").transform.position;
+                PlayerPrefs.SetInt("levelSelected", PlayerPrefs.GetInt("levelSelected") + 1);
             }
             catch (System.ArgumentOutOfRangeException e)
             {
