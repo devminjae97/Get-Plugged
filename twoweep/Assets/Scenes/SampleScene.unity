@@ -210,11 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614529613e9d694428708ffe19dffb50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startFlags:
-  - {fileID: 252554809}
-  - {fileID: 1909426696}
-  - {fileID: 662532203}
-  - {fileID: 707220398}
+  stages:
+  - {fileID: 1338208586}
+  - {fileID: 724715173}
 --- !u!1 &165924553
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,20 +3018,10 @@ Transform:
   m_Father: {fileID: 1694084502}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &662532203 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 774695419595358540, guid: 462265e6d4c89a84d9e15c0b9a4eac58, type: 3}
-  m_PrefabInstance: {fileID: 1826073248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &662532204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 774695419595358543, guid: 462265e6d4c89a84d9e15c0b9a4eac58, type: 3}
   m_PrefabInstance: {fileID: 1826073248}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &707220398 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 774695419595358540, guid: 462265e6d4c89a84d9e15c0b9a4eac58, type: 3}
-  m_PrefabInstance: {fileID: 1375586539}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &707220399 stripped
 Transform:
