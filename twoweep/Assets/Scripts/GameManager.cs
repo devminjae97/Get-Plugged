@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour 
-{ 
-
+{
+    [SerializeField] private GameObject menuSet;
     private PlayerController playerController1;
     private PlayerController playerController2;
 
@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
     
     public List<GameObject> stages = new List<GameObject>();
     
+
     void Start() 
     {
+        menuSet.SetActive(false);
         playerController1 = GameObject.Find("Player1").GetComponent<PlayerController>();
         playerController2 = GameObject.Find("Player2").GetComponent<PlayerController>();
 
@@ -52,6 +54,14 @@ public class GameManager : MonoBehaviour
 
             // ready stage
             ReadyStage();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //Submenu
+            if (menuSet.activeSelf)
+                menuSet.SetActive(false);
+            else
+                menuSet.SetActive(true);
         }
     }
 

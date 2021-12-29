@@ -5,6 +5,14 @@ using UnityEngine.EventSystems;
 
 public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
+    public enum buttonType
+    {
+        New,
+        Continue,
+        Option,
+        Back,
+        Quit
+    }
     [SerializeField] private buttonType currentType;
     [SerializeField] private Transform buttonScale_TR;
     Vector3 defaultScale_V;
@@ -20,10 +28,10 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         switch (currentType)
         {
             case buttonType.New:
-                SceneLoader.LoadSceneHandle("Play", 0);
+                SceneLoader.LoadSceneHandle("SelectStage", 0);
                 break;
             case buttonType.Continue:
-                SceneLoader.LoadSceneHandle("Play", 1);
+                SceneLoader.LoadSceneHandle("SelectStage", 1);
                 break;
             case buttonType.Option:
                 CanvasGroupOn(optionGroup);

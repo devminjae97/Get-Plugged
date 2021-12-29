@@ -45,12 +45,9 @@ public class SceneLoader : MonoBehaviour
             }
             if (progressBar.value >= 1f)
             {
-                loadText.text = "Press AnyKey";
-            }
-            if (Input.anyKeyDown && progressBar.value >= 1f && operation.progress >= 0.9f)
-            {
                 operation.allowSceneActivation = true;
             }
+
         }
     }
 }
