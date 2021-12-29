@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0.0009765625, y: 308}
-  m_SizeDelta: {x: -0.0022, y: 579.394}
+  m_AnchoredPosition: {x: 0, y: 300}
+  m_SizeDelta: {x: -200, y: 610}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &81598246
 MonoBehaviour:
@@ -244,8 +244,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numOfStage: 16
-  stageButton: {fileID: 4373516834555704461, guid: cf2df6e417f89784cae1b2983ce3afaa, type: 3}
   parentPanel: {fileID: 1228412984}
+  stageButton: {fileID: 4373516834555704461, guid: cf2df6e417f89784cae1b2983ce3afaa, type: 3}
+  lockedButton: {fileID: 21300000, guid: c8815382a80889149aa0b080a0623a30, type: 3}
 --- !u!4 &324841457
 Transform:
   m_ObjectHideFlags: 0
@@ -396,7 +397,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.13333334, g: 0.1254902, b: 0.20392157, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -476,8 +477,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 289.69702}
-  m_SizeDelta: {x: -0.000002734363, y: 579.394}
+  m_AnchoredPosition: {x: 0, y: 300}
+  m_SizeDelta: {x: 0, y: 610}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1228412985
 MonoBehaviour:
@@ -499,8 +500,8 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 220, y: 220}
-  m_Spacing: {x: 20, y: 2.25}
+  m_CellSize: {x: 300, y: 165}
+  m_Spacing: {x: 55, y: 55}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &1547838612

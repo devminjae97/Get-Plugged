@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class StageManager : MonoBehaviour
 {
     public int numOfStage;
-    public GameObject stageButton;
     public RectTransform parentPanel;
+    public GameObject stageButton;
     public Sprite lockedButton;
+
     int stageReached;
     //public static int thisLevel;
 
