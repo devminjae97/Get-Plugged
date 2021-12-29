@@ -9,6 +9,7 @@ public class StageManager : MonoBehaviour
     public int numOfStage;
     public GameObject stageButton;
     public RectTransform parentPanel;
+    public Sprite lockedButton;
     int stageReached;
     //public static int thisLevel;
 
@@ -55,6 +56,7 @@ public class StageManager : MonoBehaviour
             if (i + 1 > stageReached)
             {
                 stageButton.GetComponent<Button>().interactable = false;
+                stageButton.GetComponent<Image>().sprite = lockedButton;
             }
         }
     }
