@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0.0010375977, y: 308}
+  m_AnchoredPosition: {x: 0.0009765625, y: 308}
   m_SizeDelta: {x: -0.0022, y: 579.394}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &81598246
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 324841457}
   - component: {fileID: 324841456}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: SM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 965a5fd02cde48b4e8ee2e9d44060c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noOfLevels: 16
-  levelButton: {fileID: 4373516834555704461, guid: cf2df6e417f89784cae1b2983ce3afaa, type: 3}
+  numOfStage: 16
+  stageButton: {fileID: 4373516834555704461, guid: cf2df6e417f89784cae1b2983ce3afaa, type: 3}
   parentPanel: {fileID: 1228412984}
 --- !u!4 &324841457
 Transform:
@@ -254,7 +254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324841455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.23865, y: -9.807739, z: -2.548591}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

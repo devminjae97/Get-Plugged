@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
     private bool isOnGoalFlag;
 
-    void Start()
+    void Awake()
     {
         gameManager = GameObject.Find("GM").GetComponent<GameManager>();
 
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         groundCheckerCentre = transform.Find("GroundCheckerCentre");
         groundCheckerRight = transform.Find("GroundCheckerRight");
 
-        Init();
+        InitVariables();
     }
 
     // 단발적이지 않거나 rigid를 이용한 물리효과에 사용
@@ -76,22 +76,27 @@ public class PlayerController : MonoBehaviour
 
     public void Init() 
     {
-        // disable control
-        isControllable = false;
-
         // initiate player position
-        if(startPoint != null)
+        if (startPoint != null)
             this.transform.position = startPoint.transform.position + Vector3.up;
-        else
+        else 
+        {
+            Debug.Log("There is no start points!");
             return;
+        }
 
         rigid.velocity = Vector2.zero;
 
         // initiate variables
+        InitVariables();
+    }
+
+    void InitVariables() 
+    {
         checkerTargetLeft = null;
         checkerTargetCentre = null;
         checkerTargetRight = null;
-        
+
         isFacingRight = true;
         sr.flipX = false;
 
@@ -99,9 +104,8 @@ public class PlayerController : MonoBehaviour
 
         isOnGoalFlag = false;
 
-        // enable control
-        isControllable = true;
-    }
+        isControllable = false;
+    } 
 
     void Move() 
     {
@@ -172,6 +176,11 @@ public class PlayerController : MonoBehaviour
         isJumping = !(isCheckedLeft || isCheckedCentre || isCheckedRight);
     }
 
+    public void SetPlayerControllability(bool b) 
+    {
+        isControllable = b;
+    }
+
     public void SetStartPoint(GameObject o)
     {
         if(o != null)
@@ -188,14 +197,11 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.CompareTag("Finish")){
-            Debug.Log("Finish");
             isOnGoalFlag = true;
         } 
         else if(other.CompareTag("Floor"))  // or Trap
         {
-            Debug.Log("Fall");
-            gameManager.Reset();
-            // Init();
+            gameManager.RespawnPlayers();
         }
     }
 
