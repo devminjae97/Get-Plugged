@@ -10,15 +10,13 @@ public class TrapButton : MonoBehaviour
     private bool isTrapTriggered = false;
     private bool isTrapEnd = false;
 
-    Transform trapTransform;
     BoxCollider2D boxCollider2D;
     SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        boxCollider2D = GetComponent<BoxCollider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        trapTransform = buttonTrap.transform;
+        boxCollider2D = transform.parent.GetComponent<BoxCollider2D>();
+        spriteRenderer = transform.parent.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -34,14 +32,17 @@ public class TrapButton : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<CapsuleCollider2D>().bounds.center.y > gameObject.GetComponent<BoxCollider2D>().bounds.center.y)
         {
             spriteRenderer.sprite = clickedSprite;
-            boxCollider2D.size = new Vector2(0.625f, 0.19f);
-            boxCollider2D.offset = new Vector2(0.0f, -0.22f);
+            boxCollider2D.size = new Vector2(0.625f, 0.115f);
+            boxCollider2D.offset = new Vector2(0.0f, -0.245f);
+            gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.45f, 0.2f);
+            gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0.0035f, -0.23f);
+
 
             if (!isTrapEnd)
             {
                 isTrapTriggered = true;
             }
-        }       
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
