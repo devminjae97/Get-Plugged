@@ -27,11 +27,13 @@ public class PlayerController : MonoBehaviour
 
 
     private float terminalVelocity = -8f;
+    private float initGravityScale;
+    private float reversedDirection;
 
     private bool isControllable;
     private bool isFacingRight;
-    private bool isMoving;
     private bool isJumping;
+    private bool isReversed;
     private bool isOnGoalFlag;
 
     void Awake()
@@ -45,6 +47,8 @@ public class PlayerController : MonoBehaviour
         groundCheckerLeft = transform.Find("GroundCheckerLeft");
         groundCheckerCentre = transform.Find("GroundCheckerCentre");
         groundCheckerRight = transform.Find("GroundCheckerRight");
+
+        initGravityScale = rigid.gravityScale;
 
         InitVariables();
     }
@@ -85,6 +89,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        // reset velocity
         rigid.velocity = Vector2.zero;
 
         // initiate variables
@@ -97,10 +102,18 @@ public class PlayerController : MonoBehaviour
         checkerTargetCentre = null;
         checkerTargetRight = null;
 
+        reversedDirection = 1f;
+
         isFacingRight = true;
         sr.flipX = false;
 
+        transform.localScale = Vector3.one;
+
         isJumping = true;
+        
+        rigid.gravityScale = initGravityScale;
+        
+        isReversed = false;
 
         isOnGoalFlag = false;
 
@@ -135,11 +148,11 @@ public class PlayerController : MonoBehaviour
     void Jump() 
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
-            rigid.AddForce(Vector3.up * jumpPower, ForceMode2D.Impulse);
+            rigid.AddForce(Vector3.up * jumpPower * reversedDirection, ForceMode2D.Impulse);
         
         // set Terminal Velocity
-        if (rigid.velocity.y <= terminalVelocity)
-            rigid.velocity = new Vector2(rigid.velocity.x, terminalVelocity);
+        if (rigid.velocity.y * reversedDirection <= terminalVelocity)   // 반대로?
+            rigid.velocity = new Vector2(rigid.velocity.x, terminalVelocity * reversedDirection);
 
         // set animation
         if (isJumping)
@@ -152,6 +165,23 @@ public class PlayerController : MonoBehaviour
     {
         isFacingRight = !isFacingRight;
         sr.flipX = !isFacingRight;
+    }
+
+    public void Reverse() 
+    {
+        isReversed = !isReversed;
+
+        // flip scale.y
+        transform.localScale = new Vector3(1, transform.localScale.y * -1, 1);
+
+        // reverse gravity
+        rigid.gravityScale *= -1;
+
+        // reverse horizontal control
+        reversedDirection *= -1;
+
+        // reset velocity
+        rigid.velocity = Vector2.zero;
     }
     
     void GroundCheck() 
@@ -196,10 +226,11 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        if(other.CompareTag("Finish")){
+        if(other.CompareTag("Finish"))
+        {
             isOnGoalFlag = true;
         } 
-        else if(other.CompareTag("Floor"))  // or Trap
+        else if(other.CompareTag("Trap"))
         {
             gameManager.RespawnPlayers();
         }
