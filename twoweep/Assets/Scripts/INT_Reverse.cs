@@ -6,7 +6,7 @@ public class INT_Reverse : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("HitBox"))
         {
             other.transform.parent.GetComponent<PlayerController>().Reverse();
             gameObject.SetActive(false);       

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Floor
+  - Trap
+  - HitBox
   layers:
   - Default
   - TransparentFX
