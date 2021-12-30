@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         musicSource.volume = 0.1f;
+        btnSource.volume = 0.1f;
     }
     public void SetMusicVolume(float volume)
     {
