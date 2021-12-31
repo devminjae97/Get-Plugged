@@ -34,6 +34,13 @@ public class ObjectTransformButton : MonoBehaviour
         foreach (Transform t in generateObjectList)
         {
             t.gameObject.SetActive(true);
+            if (t.childCount > 0)
+            {
+                for (int i = 0; i < t.transform.childCount; i++)
+                {
+                    t.transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
         }
     }
     void DestroyObjects()
@@ -41,6 +48,13 @@ public class ObjectTransformButton : MonoBehaviour
         foreach (Transform t in destroyObjectList)
         {
             t.gameObject.SetActive(false);
+            if (t.childCount > 0)
+            {
+                for (int i = 0; i < t.transform.childCount; i++)
+                {
+                    t.transform.GetChild(i).gameObject.SetActive(false);
+                }
+            }
         }
     }
 

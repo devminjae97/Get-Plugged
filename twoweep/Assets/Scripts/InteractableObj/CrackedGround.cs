@@ -8,12 +8,37 @@ public class CrackedGround : MonoBehaviour
     public float timeToRespawn;
     IEnumerator BreakGround()
     {
-        yield return new WaitForSeconds(timeToBreak);
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        yield return new WaitForSeconds(timeToRespawn);
-        gameObject.GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        if (gameObject.transform.childCount > 0)
+        {
+            yield return new WaitForSeconds(timeToBreak);
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                gameObject.transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+            yield return new WaitForSeconds(timeToRespawn);
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                gameObject.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            yield return new WaitForSeconds(timeToBreak);
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+            yield return new WaitForSeconds(timeToRespawn);
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        }
+            
     }
 
     void OnCollisionEnter2D(Collision2D collision)
