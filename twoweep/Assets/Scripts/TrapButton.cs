@@ -51,7 +51,8 @@ public class TrapButton : MonoBehaviour
         {
             isTrapTriggered = false;
             isTrapEnd = true;
-            other.GetComponent<BoxCollider2D>().enabled = false;
+            other.gameObject.tag = "Ground";
+            other.isTrigger = false;
         }
     }
 }
