@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundGeneratorButton : MonoBehaviour
+public class ObjectTransformButton : MonoBehaviour
 {
     public Sprite clickedSprite;
-    public GameObject groundObjectParent;
-    List<Transform> groundObjectList = new List<Transform>();
+    public Transform generateObjectParent;
+    public Transform destroyObjectParent;
+
+    List<Transform> generateObjectList = new List<Transform>();
+    List<Transform> destroyObjectList = new List<Transform>();
 
     BoxCollider2D boxCollider2D;
     SpriteRenderer spriteRenderer;
@@ -16,17 +19,28 @@ public class GroundGeneratorButton : MonoBehaviour
         boxCollider2D = transform.parent.GetComponent<BoxCollider2D>();
         spriteRenderer = transform.parent.GetComponent<SpriteRenderer>();
 
-        for (int i = 0; i < groundObjectParent.transform.childCount; i++)
+        for (int i = 0; i < generateObjectParent.childCount; i++)
         {
-            groundObjectList.Add(groundObjectParent.transform.GetChild(i));
+            generateObjectList.Add(generateObjectParent.GetChild(i));
+        }
+        for (int i = 0; i < destroyObjectParent.childCount; i++)
+        {
+            destroyObjectList.Add(destroyObjectParent.GetChild(i));
         }
     }
 
-    void GenerateGround()
+    void GenerateObjects()
     {
-        foreach (Transform t in groundObjectList)
+        foreach (Transform t in generateObjectList)
         {
             t.gameObject.SetActive(true);
+        }
+    }
+    void DestroyObjects()
+    {
+        foreach (Transform t in destroyObjectList)
+        {
+            t.gameObject.SetActive(false);
         }
     }
 
@@ -40,7 +54,8 @@ public class GroundGeneratorButton : MonoBehaviour
             gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.45f, 0.2f);
             gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0.0035f, -0.23f);
 
-            GenerateGround();
+            GenerateObjects();
+            DestroyObjects();
         }
     }
 }
