@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
-{
+public class CameraController : MonoBehaviour {
     [SerializeField] private Transform target;
-    [SerializeField] private float offsetY; // camera1 : 0, camera2 : =10
+    [SerializeField] private float offsetY; // 
 
     private float posY;
     private float posZ;
@@ -14,24 +13,30 @@ public class CameraController : MonoBehaviour
 
     static private float speed = 2f;
 
-    void Awake()
-    {
+    void Awake() {
         posZ = transform.position.z;
         isTracePlayer = false;
     }
-    
-    void LateUpdate()
-    {
-        if(isTracePlayer)
-            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, posY + offsetY, posZ), speed * Time.deltaTime);
+
+    float tx;
+    float ty;
+
+    void LateUpdate() {
+        if (isTracePlayer) {
+            tx = Mathf.Lerp(transform.position.x, target.position.x, speed * Time.deltaTime);
+            ty = Mathf.Lerp(transform.position.y, target.position.y + offsetY, speed * Mathf.Pow(Mathf.Abs(transform.position.y - target.position.y), 2) * Time.deltaTime);
+
+            transform.position = new Vector3(tx, ty, posZ);
+
+            //transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, posY + offsetY, posZ), speed * Time.deltaTime);
+        }
     }
-    
-    public void SetCameraPos(float y) 
-    {
-        posY = y;
-        this.transform.position = new Vector3(target.position.x, posY + offsetY, posZ);
+
+    public void SetCameraPos(float y) {
+        //posY = y;
+        this.transform.position = new Vector3(target.position.x, target.position.y + offsetY, posZ);
     }
-    
+
     public void SetCameraTrace(bool b) {
         isTracePlayer = b;
     }
