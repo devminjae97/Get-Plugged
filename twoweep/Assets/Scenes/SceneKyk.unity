@@ -9361,7 +9361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 737386485}
-  offsetY: -10
+  offsetY: 1
 --- !u!20 &1473729597
 Camera:
   m_ObjectHideFlags: 0
@@ -9459,7 +9459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1306752153}
-  offsetY: 0
+  offsetY: 1
 --- !u!20 &1501492886
 Camera:
   m_ObjectHideFlags: 0

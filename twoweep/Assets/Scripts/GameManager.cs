@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour {
     private PlayerController playerController1;
     private PlayerController playerController2;
 
-    private Test cameraController1;
-    private Test cameraController2;
+    private CameraController cameraController1;
+    private CameraController cameraController2;
 
     public List<GameObject> stages = new List<GameObject>();
 
@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour {
         playerController1 = GameObject.Find("Player1").GetComponent<PlayerController>();
         playerController2 = GameObject.Find("Player2").GetComponent<PlayerController>();
 
-        cameraController1 = GameObject.Find("Camera1").GetComponent<Test>();
-        cameraController2 = GameObject.Find("Camera2").GetComponent<Test>();
+        cameraController1 = GameObject.Find("Camera1").GetComponent<CameraController>();
+        cameraController2 = GameObject.Find("Camera2").GetComponent<CameraController>();
 
         ReadyStage();
     }
