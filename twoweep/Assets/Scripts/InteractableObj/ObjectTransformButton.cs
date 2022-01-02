@@ -18,14 +18,19 @@ public class ObjectTransformButton : MonoBehaviour
     {
         boxCollider2D = transform.parent.GetComponent<BoxCollider2D>();
         spriteRenderer = transform.parent.GetComponent<SpriteRenderer>();
-
-        for (int i = 0; i < generateObjectParent.childCount; i++)
+        if (generateObjectParent)
         {
-            generateObjectList.Add(generateObjectParent.GetChild(i));
+            for (int i = 0; i < generateObjectParent.childCount; i++)
+            {
+                generateObjectList.Add(generateObjectParent.GetChild(i));
+            }
         }
-        for (int i = 0; i < destroyObjectParent.childCount; i++)
+        if (destroyObjectParent)
         {
-            destroyObjectList.Add(destroyObjectParent.GetChild(i));
+            for (int i = 0; i < destroyObjectParent.childCount; i++)
+            {
+                destroyObjectList.Add(destroyObjectParent.GetChild(i));
+            }
         }
     }
 
