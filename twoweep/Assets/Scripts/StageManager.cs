@@ -65,6 +65,6 @@ public class StageManager : MonoBehaviour
     void SelectStage(int index)
     {
         PlayerPrefs.SetInt("stageSelected", index);
-        SceneManager.LoadScene("SceneMJ");
+        SceneManager.LoadScene("SceneKyk");
     }
 }
