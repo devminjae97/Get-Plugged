@@ -65,7 +65,7 @@ public class ObjectTransformButton : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<CapsuleCollider2D>().bounds.center.y > gameObject.GetComponent<BoxCollider2D>().bounds.center.y)
+        if (collision.gameObject.CompareTag("Player"))
         {
             spriteRenderer.sprite = clickedSprite;
             boxCollider2D.size = new Vector2(0.625f, 0.115f);
