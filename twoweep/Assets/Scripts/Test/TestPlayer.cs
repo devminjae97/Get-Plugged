@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class TestPlayer : MonoBehaviour
 {
 
     [SerializeField] private float speed = 3f;
@@ -31,9 +31,11 @@ public class PlayerController : MonoBehaviour
     private bool isFacingRight;
     private bool isJumping;
     private bool isReversed;
+    private bool isOnGoalFlag;
+
+    // test
     private bool isRightWallDetected;
     private bool isLeftWallDetected;
-    private bool isOnGoalFlag;
 
     void Awake()
     {
@@ -54,6 +56,9 @@ public class PlayerController : MonoBehaviour
 
         InitVariables();
 
+        // test
+        Init();
+        isControllable = true;
     }
 
     // 단발적이지 않거나 rigid를 이용한 물리효과에 사용
@@ -73,6 +78,8 @@ public class PlayerController : MonoBehaviour
         }
 
         GroundCheck();
+
+        // test
         WallCheck();
     }
 
@@ -102,6 +109,7 @@ public class PlayerController : MonoBehaviour
 
     void InitVariables() 
     {
+
         reversedDirection = 1f;
 
         isFacingRight = true;
@@ -119,6 +127,7 @@ public class PlayerController : MonoBehaviour
 
         isControllable = false;
 
+        // test
         isRightWallDetected = false;
         isLeftWallDetected = false;
     } 
@@ -205,19 +214,6 @@ public class PlayerController : MonoBehaviour
         isJumping = !(isCheckedLeft || isCheckedCentre || isCheckedRight);
     }
 
-    void WallCheck()
-    {
-        if (Physics2D.OverlapPoint(wallCheckerLeft.position) != null)
-            isLeftWallDetected = Physics2D.OverlapPoint(wallCheckerLeft.position).CompareTag("Ground") ? true : false;
-        else
-            isLeftWallDetected = false;
-
-        if (Physics2D.OverlapPoint(wallCheckerRight.position) != null)
-            isRightWallDetected = Physics2D.OverlapPoint(wallCheckerRight.position).CompareTag("Ground") ? true : false;
-        else
-            isRightWallDetected = false;
-    }
-
     public void SetPlayerControllability(bool b) 
     {
         isControllable = b;
@@ -254,5 +250,21 @@ public class PlayerController : MonoBehaviour
         {
             isOnGoalFlag = false;
         }
+    }
+
+    // test
+    void WallCheck(){
+        
+
+        if (Physics2D.OverlapPoint(wallCheckerLeft.position) != null)
+            isLeftWallDetected = Physics2D.OverlapPoint(wallCheckerLeft.position).CompareTag("Ground") ? true : false;
+        else
+            isLeftWallDetected = false;
+
+        if (Physics2D.OverlapPoint(wallCheckerRight.position) != null)
+            isRightWallDetected = Physics2D.OverlapPoint(wallCheckerRight.position).CompareTag("Ground") ? true : false;
+        else
+            isRightWallDetected = false;
+
     }
 }
