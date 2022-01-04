@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 45966696}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpPower: 10
+  maxSpeed: 0
+  speedOnIceTile: 0
   startPoint: {fileID: 2101877675}
 --- !u!70 &45966697
 CapsuleCollider2D:
@@ -617,7 +619,7 @@ GameObject:
   - component: {fileID: 169323527}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -636,6 +638,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpPower: 10
+  maxSpeed: 0
+  speedOnIceTile: 0
   startPoint: {fileID: 1172583906}
 --- !u!70 &169323528
 CapsuleCollider2D:
@@ -4930,8 +4934,8 @@ GameObject:
   - component: {fileID: 955789306}
   - component: {fileID: 955789307}
   m_Layer: 0
-  m_Name: HitBox1
-  m_TagString: Player
+  m_Name: HitBox
+  m_TagString: HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10447,7 +10451,7 @@ GameObject:
   - component: {fileID: 1765024723}
   m_Layer: 0
   m_Name: HitBox
-  m_TagString: Player
+  m_TagString: HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

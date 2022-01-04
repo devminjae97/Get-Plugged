@@ -12,10 +12,13 @@ public class GameManager : MonoBehaviour {
     private CameraController cameraController1;
     private CameraController cameraController2;
 
+    // serializefield로 바꾸거나 코드로 받아오기
     public List<GameObject> stages = new List<GameObject>();
 
+    private bool isCleaningStage;
 
-    void Start() {
+    void Start() 
+    {
         menuSet.SetActive(false);
         playerController1 = GameObject.Find("Player1").GetComponent<PlayerController>();
         playerController2 = GameObject.Find("Player2").GetComponent<PlayerController>();
@@ -23,12 +26,39 @@ public class GameManager : MonoBehaviour {
         cameraController1 = GameObject.Find("Camera1").GetComponent<CameraController>();
         cameraController2 = GameObject.Find("Camera2").GetComponent<CameraController>();
 
+        isCleaningStage = false;
+
         ReadyStage();
     }
 
-    void Update() {
-        if (IsEndStage()) {
+    void Update() 
+    {
+        if (IsStageFinished()) 
+        {
             // Debug.Log("Done");
+
+            // confirmation window 생기면 ie말고 그냥 function으로 수정
+            if(!isCleaningStage)
+            {
+                isCleaningStage = true;
+                StartCoroutine(IECleanStage());
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            //Submenu
+            if (menuSet.activeSelf)
+                menuSet.SetActive(false);
+            else
+                menuSet.SetActive(true);
+        }
+    }
+
+    // 임시로 ie로함
+    IEnumerator IECleanStage()
+    {
 
             // stop players
             playerController1.SetPlayerControllability(false);
@@ -43,26 +73,37 @@ public class GameManager : MonoBehaviour {
 
             // show confirmation window
             //asdf
+            // temp
+            playerController1.Plug(true);
+            playerController2.Plug(true);
+
+        // 5초뒤
+        yield return new WaitForSeconds(2);
 
 
-            // set next stage
-            PlayerPrefs.SetInt("stageSelected", PlayerPrefs.GetInt("stageSelected") + 1);
 
-            // ready stage
-            ReadyStage();
-        }
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            //Submenu
-            if (menuSet.activeSelf)
-                menuSet.SetActive(false);
-            else
-                menuSet.SetActive(true);
-        }
+
+        // set next stage
+        PlayerPrefs.SetInt("stageSelected", PlayerPrefs.GetInt("stageSelected") + 1);
+
+
+        // ready stage
+        ReadyStage();
+
+        isCleaningStage = false;
     }
 
-    void ReadyStage() {
-        SetPlayerReady(PlayerPrefs.GetInt("stageSelected"));
+    void ReadyStage() 
+    {
 
+
+        
+        // 처음에 화면 어둡게했다가 밝게 해야할듯
+        // led 꺼지는게 느림
+
+
+        SetPlayerReady(PlayerPrefs.GetInt("stageSelected"));
+        
         // set camera position
         cameraController1.SetCameraPos(stages[PlayerPrefs.GetInt("stageSelected") - 1].transform.position.y);
         cameraController2.SetCameraPos(stages[PlayerPrefs.GetInt("stageSelected") - 1].transform.position.y);
@@ -78,19 +119,25 @@ public class GameManager : MonoBehaviour {
 
     void SetPlayerReady(int currentStage) {
 
-        try {
+        try 
+        {    
+            playerController1.Plug(false);
+            playerController2.Plug(false);
+        
             playerController1.SetStartPoint(stages[currentStage - 1].transform.Find("StartFlag1").gameObject);
             playerController2.SetStartPoint(stages[currentStage - 1].transform.Find("StartFlag2").gameObject);
 
             playerController1.Init();
             playerController2.Init();
         }
-        catch (System.ArgumentOutOfRangeException) {
+        catch (System.ArgumentOutOfRangeException) 
+        {
             Debug.Log("Stage is not selected. or Stage is Empty.");
         }
     }
 
-    public void RespawnPlayers() {
+    public void RespawnPlayers() 
+    {
         playerController1.Init();
         playerController2.Init();
 
@@ -98,7 +145,8 @@ public class GameManager : MonoBehaviour {
         playerController2.SetPlayerControllability(true);
     }
 
-    bool IsEndStage() {
+    bool IsStageFinished() 
+    {
         return playerController1.GetIsOnGoalFlag() && playerController2.GetIsOnGoalFlag();
     }
 }

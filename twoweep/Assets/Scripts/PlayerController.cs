@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    [Header("On Normal Ground")]
     [SerializeField] private float speed = 3f;
     [SerializeField] private float jumpPower = 10f;
+
+    [Header("On Ice Ground")]
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float speedOnIceTile;
 
     private Rigidbody2D rigid;
     private SpriteRenderer sr;
@@ -22,6 +26,8 @@ public class PlayerController : MonoBehaviour
     private Transform groundCheckerRight;
     private Transform wallCheckerLeft;
     private Transform wallCheckerRight;
+
+    private Transform goalFlag;
  
     private float terminalVelocity = -8f;
     private float initGravityScale;
@@ -34,10 +40,6 @@ public class PlayerController : MonoBehaviour
     private bool isRightWallDetected;
     private bool isLeftWallDetected;
     private bool isOnGoalFlag;
-    // yang fix - 20220104
-    [Header("On Ice Tile")]
-    [SerializeField] private float maxSpeed;
-    [SerializeField] private float speedOnIceTile;
     private bool isIceTile;
 
     void Awake()
@@ -65,12 +67,11 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        // yang fix - 20220104
         if (isControllable)
         {
             if (!isIceTile)
                 Move();
-            else if (isIceTile)
+            else
                 MoveOnIceTile();
         }
            
@@ -97,6 +98,7 @@ public class PlayerController : MonoBehaviour
 
     public void Init() 
     {
+
         // initiate player position
         if (startPoint != null)
             this.transform.position = startPoint.transform.position + Vector3.up;
@@ -134,6 +136,15 @@ public class PlayerController : MonoBehaviour
 
         isRightWallDetected = false;
         isLeftWallDetected = false;
+
+        isIceTile = false;
+
+        goalFlag = null;
+
+        // anim
+        anim.SetBool("isRunning", false);
+        anim.SetBool("isJumping", false);
+        anim.SetBool("isPlugging", false);
     } 
 
     void Move() 
@@ -276,10 +287,29 @@ public class PlayerController : MonoBehaviour
         return isOnGoalFlag;
     }
 
+    public void Plug(bool b)
+    {
+        // plug
+        if(b)
+        {
+            // set position
+            transform.position = new Vector3(goalFlag.position.x, transform.position.y, transform.position.z);
+
+            // play anim
+            anim.SetBool("isPlugging", true);
+        }
+        // unplug
+        else
+        {
+            anim.SetBool("isPlugging", false);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.CompareTag("Finish"))
         {
+            goalFlag = other.transform;
             isOnGoalFlag = true;
         } 
         else if(other.CompareTag("Trap"))
@@ -292,6 +322,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Finish")) 
         {
+            goalFlag = null;
             isOnGoalFlag = false;
         }
     }
@@ -308,7 +339,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("IceTile"))
-        {
+        {   
             isIceTile = false;
             isControllable = true;
         }
