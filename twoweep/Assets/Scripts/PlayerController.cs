@@ -158,14 +158,12 @@ public class PlayerController : MonoBehaviour
     void MoveOnIceTile() 
     {
         float hAxis = Input.GetAxisRaw("Horizontal");
-        Debug.Log(hAxis);
         if(hAxis == 0)
         {
             isControllable = true;
         }
         else
         {
-            Debug.Log("aa");
             isControllable = false;
         }
 
