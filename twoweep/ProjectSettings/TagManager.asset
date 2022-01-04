@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - Trap
   - HitBox
+  - IceTile
   layers:
   - Default
   - TransparentFX

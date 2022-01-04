@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
     private bool isRightWallDetected;
     private bool isLeftWallDetected;
     private bool isOnGoalFlag;
+    // yang fix - 20220104
+    [Header("On Ice Tile")]
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float speedOnIceTile;
+    private bool isIceTile;
 
     void Awake()
     {
@@ -59,8 +64,16 @@ public class PlayerController : MonoBehaviour
     // 단발적이지 않거나 rigid를 이용한 물리효과에 사용
     void FixedUpdate()
     {
-        if(isControllable)
-            Move();
+
+        // yang fix - 20220104
+        if (isControllable)
+        {
+            if (!isIceTile)
+                Move();
+            else if (isIceTile)
+                MoveOnIceTile();
+        }
+           
     }
     
     // 단발적인 입력이나 즉각적인 효과를 요할때 사용
@@ -140,6 +153,35 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isRunning", true);
         else
             anim.SetBool("isRunning", false);
+    }
+
+    void MoveOnIceTile() 
+    {
+        float hAxis = Input.GetAxisRaw("Horizontal");
+        Debug.Log(hAxis);
+        if(hAxis == 0)
+        {
+            isControllable = true;
+        }
+        else
+        {
+            Debug.Log("aa");
+            isControllable = false;
+        }
+
+        if (!isControllable)
+        {
+            rigid.AddForce(Vector2.right * hAxis * speedOnIceTile, ForceMode2D.Impulse);
+
+            if (rigid.velocity.x > maxSpeed)
+            {
+                rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
+            }
+            else if (rigid.velocity.x < (-1) * maxSpeed)
+            {
+                rigid.velocity = new Vector2((-1) * maxSpeed, rigid.velocity.y);
+            }
+        }
     }
 
     void Stop()
@@ -253,6 +295,24 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Finish")) 
         {
             isOnGoalFlag = false;
+        }
+    }
+
+    // yang fix - 20220104
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("IceTile"))
+        {
+            isIceTile = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("IceTile"))
+        {
+            isIceTile = false;
+            isControllable = true;
         }
     }
 }
