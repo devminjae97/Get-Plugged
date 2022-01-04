@@ -6,7 +6,7 @@ public class TrapButton : MonoBehaviour
 {
     public Sprite clickedSprite;
     public GameObject buttonTrap;
-    public float trapSpeed;
+    [SerializeField] private float trapSpeed;
     private bool isTrapTriggered = false;
     private bool isTrapEnd = false;
 
