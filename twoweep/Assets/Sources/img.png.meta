@@ -91,7 +91,7 @@ TextureImporter:
     second: enemy_2
   - first:
       213: 3879354732846605090
-    second: char_03
+    second: plug_1
   - first:
       213: -5256093035207643910
     second: img_30
@@ -166,25 +166,25 @@ TextureImporter:
     second: img_53
   - first:
       213: -8776118382070555087
-    second: char_04
+    second: plug_2
   - first:
       213: 8183823286636664551
-    second: char_05
+    second: plug_3
   - first:
       213: -5158313563012508772
-    second: char_06
+    second: plug_4
   - first:
       213: -2059351599708400723
-    second: char_07
+    second: plug_5
   - first:
       213: 2581551658494755250
-    second: char_08
+    second: plug_6
   - first:
       213: 3559373574744964393
-    second: char_09
+    second: plug_7
   - first:
       213: -1973562766281829211
-    second: char_10
+    second: plug_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -873,7 +873,7 @@ TextureImporter:
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -894,7 +894,7 @@ TextureImporter:
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -907,15 +907,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_03
+      name: plug_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 220
-        width: 10
-        height: 30
+        x: 224
+        y: 64
+        width: 16
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1432,15 +1432,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_04
+      name: plug_2
       rect:
         serializedVersion: 2
-        x: 49
-        y: 220
-        width: 10
-        height: 30
+        x: 240
+        y: 64
+        width: 16
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1453,15 +1453,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_05
+      name: plug_3
       rect:
         serializedVersion: 2
-        x: 60
-        y: 220
-        width: 10
-        height: 30
+        x: 256
+        y: 64
+        width: 16
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1474,15 +1474,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_06
+      name: plug_4
       rect:
         serializedVersion: 2
-        x: 71
-        y: 220
-        width: 10
-        height: 30
+        x: 272
+        y: 64
+        width: 16
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1495,15 +1495,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_07
+      name: plug_5
       rect:
         serializedVersion: 2
-        x: 82
-        y: 220
-        width: 10
-        height: 30
+        x: 288
+        y: 64
+        width: 16
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1516,15 +1516,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_08
+      name: plug_6
       rect:
         serializedVersion: 2
-        x: 93
-        y: 220
-        width: 10
-        height: 30
+        x: 304
+        y: 64
+        width: 16
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1537,15 +1537,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_09
+      name: plug_7
       rect:
         serializedVersion: 2
-        x: 104
-        y: 220
-        width: 10
-        height: 30
+        x: 320
+        y: 64
+        width: 16
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1558,15 +1558,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_10
+      name: plug_8
       rect:
         serializedVersion: 2
-        x: 115
-        y: 220
-        width: 10
-        height: 30
+        x: 336
+        y: 64
+        width: 16
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

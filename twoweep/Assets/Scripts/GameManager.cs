@@ -95,13 +95,7 @@ public class GameManager : MonoBehaviour {
 
     void ReadyStage() 
     {
-
-
-        
-        // 처음에 화면 어둡게했다가 밝게 해야할듯
-        // led 꺼지는게 느림
-
-
+        // get & set num of next stage
         SetPlayerReady(PlayerPrefs.GetInt("stageSelected"));
         
         // set camera position

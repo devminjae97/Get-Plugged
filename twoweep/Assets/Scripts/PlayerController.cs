@@ -108,6 +108,9 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        // set visible
+        sr.enabled = true;
+
         // reset velocity
         rigid.velocity = Vector2.zero;
 
@@ -144,7 +147,7 @@ public class PlayerController : MonoBehaviour
         // anim
         anim.SetBool("isRunning", false);
         anim.SetBool("isJumping", false);
-        anim.SetBool("isPlugging", false);
+
     } 
 
     void Move() 
@@ -292,16 +295,21 @@ public class PlayerController : MonoBehaviour
         // plug
         if(b)
         {
+            // set invisible
+            sr.enabled = false;
+
             // set position
             transform.position = new Vector3(goalFlag.position.x, transform.position.y, transform.position.z);
 
-            // play anim
-            anim.SetBool("isPlugging", true);
+            // set sprite direction & play anim
+            goalFlag.GetComponent<SpriteRenderer>().flipX = !isFacingRight;
+            goalFlag.GetComponent<Animator>().SetBool("isPlugging", true);
         }
         // unplug
         else
         {
-            anim.SetBool("isPlugging", false);
+            if(goalFlag != null)
+                goalFlag.GetComponent<Animator>().SetBool("isPlugging", false);
         }
     }
 
