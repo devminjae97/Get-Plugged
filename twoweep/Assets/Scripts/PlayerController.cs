@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     private bool isRightWallDetected;
     private bool isLeftWallDetected;
     private bool isOnGoalFlag;
-    private bool isIceTile;
+    private bool isOnIce;
 
     void Awake()
     {
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
         if (isControllable)
         {
-            if (!isIceTile)
+            if (!isOnIce)
                 Move();
             else
                 MoveOnIceTile();
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
         isRightWallDetected = false;
         isLeftWallDetected = false;
 
-        isIceTile = false;
+        isOnIce = false;
 
         goalFlag = null;
 
@@ -243,20 +243,42 @@ public class PlayerController : MonoBehaviour
     
     void GroundCheck() 
     {
-        bool isCheckedLeft = false;
-        bool isCheckedCentre = false;
-        bool isCheckedRight = false;
+        bool isGroundLeft = false;
+        bool isGroundCentre = false;
+        bool isGroundRight = false;
+
+        bool isIceLeft = false;
+        bool isIceCentre = false;
+        bool isIceRight = false;
 
         if (Physics2D.OverlapPoint(groundCheckerLeft.position) != null)
-            isCheckedLeft = Physics2D.OverlapPoint(groundCheckerLeft.position).CompareTag("Ground") ? true : false;
+        {
+            isGroundLeft = Physics2D.OverlapPoint(groundCheckerLeft.position).CompareTag("Ground") ? true : false;
+            isIceLeft = Physics2D.OverlapPoint(groundCheckerLeft.position).CompareTag("Ice") ? true : false;
+        }
 
         if (Physics2D.OverlapPoint(groundCheckerCentre.position) != null)
-            isCheckedCentre = Physics2D.OverlapPoint(groundCheckerCentre.position).CompareTag("Ground") ? true : false;
+        {
+            isGroundCentre = Physics2D.OverlapPoint(groundCheckerCentre.position).CompareTag("Ground") ? true : false;
+            isIceCentre = Physics2D.OverlapPoint(groundCheckerCentre.position).CompareTag("Ice") ? true : false;
+        
+            // temp - centre 가 ice이면 onIce
+
+        }
 
         if (Physics2D.OverlapPoint(groundCheckerRight.position) != null)
-            isCheckedRight = Physics2D.OverlapPoint(groundCheckerRight.position).CompareTag("Ground") ? true : false;
+        {
+            isGroundRight = Physics2D.OverlapPoint(groundCheckerRight.position).CompareTag("Ground") ? true : false;
+            isIceRight = Physics2D.OverlapPoint(groundCheckerRight.position).CompareTag("Ice") ? true : false;
+        }
 
-        isJumping = !(isCheckedLeft || isCheckedCentre || isCheckedRight);
+
+        // test
+        Debug.Log(this.name + " >> " + Physics2D.OverlapPoint(groundCheckerCentre.position).tag);
+
+
+
+        isJumping = !(isGroundLeft || isGroundCentre || isGroundRight || isIceLeft || isIceCentre || isIceRight);
     }
 
     void WallCheck()
@@ -324,6 +346,10 @@ public class PlayerController : MonoBehaviour
         {
             gameManager.RespawnPlayers();
         }
+        else if(other.CompareTag("Airspace"))
+        {
+            //isOnIce 를 여기서 바꿔야하나 그라운드 체크랑 같이 확인해야할텐데
+        }
     }
 
     void OnTriggerExit2D(Collider2D other) 
@@ -334,13 +360,13 @@ public class PlayerController : MonoBehaviour
             isOnGoalFlag = false;
         }
     }
-
+/*
     // yang fix - 20220104
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("IceTile"))
         {
-            isIceTile = true;
+            isOnIce = true;
         }
     }
 
@@ -348,8 +374,9 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("IceTile"))
         {   
-            isIceTile = false;
+            isOnIce = false;
             isControllable = true;
         }
     }
+    */
 }
