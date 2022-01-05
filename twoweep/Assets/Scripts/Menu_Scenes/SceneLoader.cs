@@ -29,11 +29,11 @@ public class SceneLoader : MonoBehaviour
         while (!operation.isDone)
         {
             yield return null;
-
+            /*
             if (loadType == 0)
                 Debug.Log("새게임");
             else if (loadType == 1)
-                Debug.Log("로드");
+                Debug.Log("로드");*/
 
             if (progressBar.value < 0.9f)
             {

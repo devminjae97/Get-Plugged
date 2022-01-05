@@ -11,11 +11,14 @@ public class StageManager : MonoBehaviour
     public GameObject stageButton;
     public Sprite lockedButton;
 
+    public Animation switchSceneMask;
+
     int stageReached;
     //public static int thisLevel;
 
     private void Awake()
     {
+        
         // for PlayerPrefs initialization code
         //PlayerPrefs.DeleteAll();
         // for PlayerPrefs testing code
@@ -65,6 +68,6 @@ public class StageManager : MonoBehaviour
     void SelectStage(int index)
     {
         PlayerPrefs.SetInt("stageSelected", index);
-        SceneManager.LoadScene("SceneKyk");
+        switchSceneMask.Play();
     }
 }
