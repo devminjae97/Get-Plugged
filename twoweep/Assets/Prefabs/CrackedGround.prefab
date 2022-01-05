@@ -240,3 +240,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToBreak: 0.5
   timeToRespawn: 3
+  killCollider: {fileID: 3543084337927244604}
