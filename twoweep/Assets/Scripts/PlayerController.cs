@@ -35,12 +35,14 @@ public class PlayerController : MonoBehaviour
 
     private bool isControllable;
     private bool isFacingRight;
+    private bool isMoving;
     private bool isJumping;
     private bool isReversed;
     private bool isRightWallDetected;
     private bool isLeftWallDetected;
     private bool isOnGoalFlag;
     private bool isOnIce;
+    private bool isSliding;
 
     void Awake()
     {
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
         if (isControllable)
         {
-            if (!isOnIce)
+            if (!isSliding)
                 Move();
             else
                 MoveOnIceTile();
@@ -127,6 +129,8 @@ public class PlayerController : MonoBehaviour
 
         transform.localScale = Vector3.one;
 
+        isMoving = false;
+
         isJumping = true;
         
         rigid.gravityScale = initGravityScale;
@@ -141,6 +145,8 @@ public class PlayerController : MonoBehaviour
         isLeftWallDetected = false;
 
         isOnIce = false;
+
+        isSliding = false;
 
         goalFlag = null;
 
@@ -164,14 +170,22 @@ public class PlayerController : MonoBehaviour
 
         // set animation
         if (h != 0)
+        {
+            isMoving = true;
             anim.SetBool("isRunning", true);
+        }
         else
+        {
+            isMoving = false;
             anim.SetBool("isRunning", false);
+        }
     }
 
     void MoveOnIceTile() 
     {
+        /*
         float hAxis = Input.GetAxisRaw("Horizontal");
+
         if(hAxis == 0)
         {
             isControllable = true;
@@ -194,6 +208,25 @@ public class PlayerController : MonoBehaviour
                 rigid.velocity = new Vector2((-1) * maxSpeed, rigid.velocity.y);
             }
         }
+        */
+        if(isMoving)
+        {
+            anim.SetBool("isRunning", false);
+            transform.Translate(Vector3.right * (isFacingRight ? 1 : -1) * speed * Time.deltaTime);
+        }
+        else
+        {
+            if(Input.GetButton("Horizontal"))
+            {
+                float h = Input.GetAxisRaw("Horizontal");
+
+                if ((h > 0 && !isFacingRight) || (h < 0 && isFacingRight))
+                    Flip();
+
+                isMoving = true;
+            }
+        }
+        
     }
 
     void Stop()
@@ -261,9 +294,6 @@ public class PlayerController : MonoBehaviour
         {
             isGroundCentre = Physics2D.OverlapPoint(groundCheckerCentre.position).CompareTag("Ground") ? true : false;
             isIceCentre = Physics2D.OverlapPoint(groundCheckerCentre.position).CompareTag("Ice") ? true : false;
-        
-            // temp - centre 가 ice이면 onIce
-
         }
 
         if (Physics2D.OverlapPoint(groundCheckerRight.position) != null)
@@ -273,8 +303,14 @@ public class PlayerController : MonoBehaviour
         }
 
 
+        // centre 가 ice이면 on ice
+        if(isIceCentre)
+            isOnIce = true;
+        else if(!isIceCentre && isGroundCentre)
+            isOnIce = false;
+
         // test
-        Debug.Log(this.name + " >> " + Physics2D.OverlapPoint(groundCheckerCentre.position).tag);
+        //Debug.Log(this.name + " >> " + Physics2D.OverlapPoint(groundCheckerCentre.position).tag);
 
 
 
@@ -284,12 +320,12 @@ public class PlayerController : MonoBehaviour
     void WallCheck()
     {
         if (Physics2D.OverlapPoint(wallCheckerLeft.position) != null)
-            isLeftWallDetected = Physics2D.OverlapPoint(wallCheckerLeft.position).CompareTag("Ground") ? true : false;
+            isLeftWallDetected = (Physics2D.OverlapPoint(wallCheckerLeft.position).CompareTag("Ground") || Physics2D.OverlapPoint(wallCheckerLeft.position).CompareTag("Ice")) ? true : false;
         else
             isLeftWallDetected = false;
 
         if (Physics2D.OverlapPoint(wallCheckerRight.position) != null)
-            isRightWallDetected = Physics2D.OverlapPoint(wallCheckerRight.position).CompareTag("Ground") ? true : false;
+            isRightWallDetected = (Physics2D.OverlapPoint(wallCheckerRight.position).CompareTag("Ground") || Physics2D.OverlapPoint(wallCheckerRight.position).CompareTag("Ice")) ? true : false;
         else
             isRightWallDetected = false;
     }
@@ -346,18 +382,30 @@ public class PlayerController : MonoBehaviour
         {
             gameManager.RespawnPlayers();
         }
-        else if(other.CompareTag("Airspace"))
+    }
+
+    void OnTriggerStay2D(Collider2D other) 
+    {
+        if(other.CompareTag("IceAirspace"))
         {
-            //isOnIce 를 여기서 바꿔야하나 그라운드 체크랑 같이 확인해야할텐데
+            if(isOnIce)
+            {
+                isSliding = true;
+            }
         }
     }
 
     void OnTriggerExit2D(Collider2D other) 
     {
-        if (other.CompareTag("Finish")) 
+        if(other.CompareTag("Finish")) 
         {
             goalFlag = null;
             isOnGoalFlag = false;
+        }
+        else if(other.CompareTag("IceAirspace"))
+        {
+            if(isSliding)
+                isSliding = false;
         }
     }
 /*
