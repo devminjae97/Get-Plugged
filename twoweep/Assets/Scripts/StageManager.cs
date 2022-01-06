@@ -16,6 +16,7 @@ public class StageManager : MonoBehaviour
     int stageReached;
 
     [SerializeField] private float mouseDisabledTime;
+    Button[] buttons;
     //public static int thisLevel;
 
     private void Awake()
@@ -31,14 +32,23 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine("MouseDisabled");
+        buttons = FindObjectsOfType<Button>();
+        StartCoroutine("ButtonDisabled");
     }
 
-    IEnumerator MouseDisabled()
+    IEnumerator ButtonDisabled()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        foreach (Button b in buttons)
+        {
+            b.interactable = false;
+        }
+
         yield return new WaitForSeconds(mouseDisabledTime);
-        Cursor.lockState = CursorLockMode.None;
+
+        foreach (Button b in buttons)
+        {
+            b.interactable = true;
+        }
     }
 
     void Init() 
@@ -87,8 +97,14 @@ public class StageManager : MonoBehaviour
     IEnumerator AnimStartAndSwitchScene()
     {
         switchSceneMask.SetTrigger("Close");
-        Cursor.lockState = CursorLockMode.Locked;
+
+        foreach (Button b in buttons)
+        {
+            b.interactable = false;
+        }
+
         yield return new WaitForSeconds(mouseDisabledTime);
+
         SceneManager.LoadScene("SceneYang");
     }
 }
