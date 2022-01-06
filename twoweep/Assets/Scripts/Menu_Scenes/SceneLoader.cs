@@ -18,7 +18,10 @@ public class SceneLoader : MonoBehaviour
     {
         loadScene = _name;
         loadType = _loadType;
-        SceneManager.LoadScene("Loading");
+        if (loadScene == "SelectStage")
+            SceneManager.LoadScene("Loading");
+        else
+            SceneManager.LoadScene("MainMenu");
     }
     IEnumerator LoadScene()
     {
