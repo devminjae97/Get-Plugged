@@ -11,7 +11,8 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         Continue,
         Option,
         Back,
-        Quit
+        Quit,
+        BackToMenu
     }
     [SerializeField] private buttonType currentType;
     [SerializeField] private Transform buttonScale_TR;
@@ -42,9 +43,12 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 CanvasGroupOn(mainGroup);
                 CanvasGroupOff(optionGroup);
                 break;
-            case buttonType.Quit:
+            case buttonType.BackToMenu:
                 SwitchSceneCloseAnim.SetTrigger("Close");
-                Debug.Log("³ª°¡±â");
+                SceneLoader.LoadSceneHandle("MainMenu", 0);
+                break;
+            case buttonType.Quit:
+                Application.Quit();
                 break;
         }
     }

@@ -2253,10 +2253,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e36ad2b0eb2fca4c99b8c7a4ecb024f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentType: 4
+  currentType: 5
   buttonScale_TR: {fileID: 1410586228}
   mainGroup: {fileID: 0}
   optionGroup: {fileID: 0}
+  SwitchSceneCloseAnim: {fileID: 2092909374747365070, guid: 50908d67fccd91a41b1d4f7095433657, type: 3}
 --- !u!114 &94628400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15884,7 +15885,6 @@ MonoBehaviour:
   - {fileID: 1440968446}
   - {fileID: 131348290}
   - {fileID: 1744007851}
-  - {fileID: 0}
 --- !u!4 &1736790778
 Transform:
   m_ObjectHideFlags: 0
