@@ -5,18 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SwitchScene : MonoBehaviour
-{
-    void ToInGameSceneCloseAnim()
+{ 
+    public void SetButtonsEnabled()
     {
-        if (SceneManager.GetActiveScene().name == "SelectStage")
-        {
-            Debug.Log("ToSceneYang");
-            SceneManager.LoadScene("SceneYang");
-        }
-        else if (SceneManager.GetActiveScene().name == "SceneYang")
-        {
-            Debug.Log("ToSelectStage");
-            SceneManager.LoadScene("SelectStage");
-        }
+        //GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 }

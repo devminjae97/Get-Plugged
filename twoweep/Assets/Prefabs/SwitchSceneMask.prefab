@@ -87,7 +87,8 @@ GameObject:
   - component: {fileID: 1108021535799381163}
   - component: {fileID: 1108021535799381162}
   - component: {fileID: 1108021535799381173}
-  - component: {fileID: 1108021535799381172}
+  - component: {fileID: 2092909374747365070}
+  - component: {fileID: 8694210550734054495}
   m_Layer: 5
   m_Name: SwitchSceneMask
   m_TagString: Untagged
@@ -166,20 +167,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
---- !u!111 &1108021535799381172
-Animation:
+--- !u!95 &2092909374747365070
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108021535799381174}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b55a8325b4572564db13a4c7aa63bece, type: 2}
-  m_Animations:
-  - {fileID: 0}
-  - {fileID: 7400000, guid: b55a8325b4572564db13a4c7aa63bece, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 927a8eeb566a8a54b8c41a3b5c94e8cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &8694210550734054495
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108021535799381174}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

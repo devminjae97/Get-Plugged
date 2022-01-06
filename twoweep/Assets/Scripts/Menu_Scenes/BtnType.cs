@@ -18,7 +18,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     Vector3 defaultScale_V;
     [SerializeField] private CanvasGroup mainGroup;
     [SerializeField] private CanvasGroup optionGroup;
-    public Animation SwitchSceneCloseAnim;
+    public Animator SwitchSceneCloseAnim;
 
     private void Start()
     {
@@ -43,7 +43,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 CanvasGroupOff(optionGroup);
                 break;
             case buttonType.Quit:
-                SwitchSceneCloseAnim.Play();
+                SwitchSceneCloseAnim.SetTrigger("Close");
                 Debug.Log("³ª°¡±â");
                 break;
         }

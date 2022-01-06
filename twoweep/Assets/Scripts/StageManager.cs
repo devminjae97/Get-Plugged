@@ -11,21 +11,34 @@ public class StageManager : MonoBehaviour
     public GameObject stageButton;
     public Sprite lockedButton;
 
-    public Animation switchSceneMask;
+    public Animator switchSceneMask;
 
     int stageReached;
+
+    [SerializeField] private float mouseDisabledTime;
     //public static int thisLevel;
 
     private void Awake()
     {
-        
+
         // for PlayerPrefs initialization code
         //PlayerPrefs.DeleteAll();
         // for PlayerPrefs testing code
         //PlayerPrefs.SetInt("stageReached", 2);
-
         Init();
         GenerateStageButtons();
+    }
+
+    private void Start()
+    {
+        StartCoroutine("MouseDisabled");
+    }
+
+    IEnumerator MouseDisabled()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        yield return new WaitForSeconds(mouseDisabledTime);
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void Init() 
@@ -68,6 +81,14 @@ public class StageManager : MonoBehaviour
     void SelectStage(int index)
     {
         PlayerPrefs.SetInt("stageSelected", index);
-        switchSceneMask.Play();
+        StartCoroutine("AnimStartAndSwitchScene");
+    }
+
+    IEnumerator AnimStartAndSwitchScene()
+    {
+        switchSceneMask.SetTrigger("Close");
+        Cursor.lockState = CursorLockMode.Locked;
+        yield return new WaitForSeconds(mouseDisabledTime);
+        SceneManager.LoadScene("SceneYang");
     }
 }
