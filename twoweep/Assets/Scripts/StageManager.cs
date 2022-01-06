@@ -105,6 +105,6 @@ public class StageManager : MonoBehaviour
 
         yield return new WaitForSeconds(mouseDisabledTime);
 
-        SceneManager.LoadScene("SceneYang");
+        SceneManager.LoadScene("SceneMJ");
     }
 }

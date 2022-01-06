@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour 
+{
     [SerializeField] private GameObject menuSet;
+
+    private SFXManager sfxManager;
+
     private PlayerController playerController1;
     private PlayerController playerController2;
 
@@ -20,6 +24,9 @@ public class GameManager : MonoBehaviour {
     void Start() 
     {
         menuSet.SetActive(false);
+
+        sfxManager = GameObject.Find("SFXM").GetComponent<SFXManager>();
+
         playerController1 = GameObject.Find("Player1").GetComponent<PlayerController>();
         playerController2 = GameObject.Find("Player2").GetComponent<PlayerController>();
 
@@ -60,26 +67,32 @@ public class GameManager : MonoBehaviour {
     IEnumerator IECleanStage()
     {
 
-            // stop players
-            playerController1.SetPlayerControllability(false);
-            playerController2.SetPlayerControllability(false);
+        // stop players
+        playerController1.SetPlayerControllability(false);
+        playerController2.SetPlayerControllability(false);
 
-            // disable camera trace
-            cameraController1.SetCameraTrace(false);
-            cameraController2.SetCameraTrace(false);
+        // disable camera trace
+        cameraController1.SetCameraTrace(false);
+        cameraController2.SetCameraTrace(false);
 
-            // unlock stage
-            PlayerPrefs.SetInt("stageReached", PlayerPrefs.GetInt("stageReached") + 1);
+        // unlock stage
+        PlayerPrefs.SetInt("stageReached", PlayerPrefs.GetInt("stageReached") + 1);
 
-            // show confirmation window
-            //asdf
-            // temp
-            playerController1.Plug(true);
-            playerController2.Plug(true);
+        // show confirmation window
+        //asdf
+        // temp
+
+        sfxManager.PlaySFXPlug();
+
+        playerController1.Plug(true);
+        playerController2.Plug(true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        sfxManager.PlaySFXClear();
 
         // 5초뒤
         yield return new WaitForSeconds(2);
-
 
 
 
@@ -132,6 +145,8 @@ public class GameManager : MonoBehaviour {
 
     public void RespawnPlayers() 
     {
+        //sfxManager.PlaySFXDead();
+
         playerController1.Init();
         playerController2.Init();
 
