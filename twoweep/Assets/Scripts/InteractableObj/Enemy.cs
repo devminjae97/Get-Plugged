@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float speed = 3f;
     [SerializeField] private bool isFallable = false;
+    [SerializeField] private bool isFacingRight = true;
 
     private SpriteRenderer sr;
     
@@ -15,7 +16,8 @@ public class Enemy : MonoBehaviour
     private Transform wallCheckerLeft;
     private Transform wallCheckerRight;
 
-    private bool isFacingRight;
+    private Vector3 init_pos;
+    private bool init_isFacingRight;
     
     void Awake() 
     {
@@ -27,13 +29,25 @@ public class Enemy : MonoBehaviour
         wallCheckerLeft = transform.Find("WallCheckerLeft");
         wallCheckerRight = transform.Find("WallCheckerRight");
 
-        isFacingRight = true;
+        init_pos = transform.position;
+        init_isFacingRight = isFacingRight;
     }
-    
+
+    void OnEnable() 
+    {
+        Reset();
+    }
+
     void Update()
     {
         Move();
         Flip();
+    }
+
+    void Reset() 
+    {
+        transform.position = init_pos;
+        isFacingRight = init_isFacingRight;
     }
 
     void Move() 
@@ -77,5 +91,12 @@ public class Enemy : MonoBehaviour
     {
         isFacingRight = b;
         sr.flipX = !isFacingRight;
+    }
+
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.CompareTag("Trap")) {
+            this.gameObject.SetActive(false);
+        }
     }
 }
