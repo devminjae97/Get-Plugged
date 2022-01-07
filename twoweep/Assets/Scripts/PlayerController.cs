@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
         isLeftWallDetected = false;
 
         isOnIce = false;
-
+        
         isSliding = false;
 
         goalFlag = null;
@@ -176,6 +176,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            //Debug.Log("!!!!!!!!!!!!!!!!!!!!!");
             isMoving = false;
             anim.SetBool("isRunning", false);
         }
@@ -213,6 +214,9 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isRunning", false);
             transform.Translate(Vector3.right * (isFacingRight ? 1 : -1) * speed * Time.deltaTime);
+
+            if (!isOnIce)
+                isSliding = false;
         }
         else
         {
@@ -328,6 +332,9 @@ public class PlayerController : MonoBehaviour
             isRightWallDetected = (Physics2D.OverlapPoint(wallCheckerRight.position).CompareTag("Ground") || Physics2D.OverlapPoint(wallCheckerRight.position).CompareTag("Ice")) ? true : false;
         else
             isRightWallDetected = false;
+        
+        if (isSliding && ((isRightWallDetected && isFacingRight) || (isLeftWallDetected && !isFacingRight)))
+            isMoving = false;
     }
 
     public void SetPlayerControllability(bool b) 
@@ -389,9 +396,7 @@ public class PlayerController : MonoBehaviour
         if(other.CompareTag("IceAirspace"))
         {
             if(isOnIce)
-            {
                 isSliding = true;
-            }
         }
     }
 
@@ -401,11 +406,6 @@ public class PlayerController : MonoBehaviour
         {
             goalFlag = null;
             isOnGoalFlag = false;
-        }
-        else if(other.CompareTag("IceAirspace"))
-        {
-            if(isSliding)
-                isSliding = false;
         }
     }
 /*
