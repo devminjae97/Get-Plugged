@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
 
     [SerializeField] private float speed = 3f;
+    [SerializeField] private bool isFallable = false;
 
     private SpriteRenderer sr;
     
@@ -48,11 +49,14 @@ public class Enemy : MonoBehaviour
         bool isRightWall = false;
 
         // ground check
-        if (Physics2D.OverlapPoint(groundCheckerLeft.position) == null)
-            isLeftCliff = true;
-        
-        if (Physics2D.OverlapPoint(groundCheckerRight.position) == null)
-            isRightCliff = true;
+        if (!isFallable) 
+        {
+            if (Physics2D.OverlapPoint(groundCheckerLeft.position) == null)
+                isLeftCliff = true;
+
+            if (Physics2D.OverlapPoint(groundCheckerRight.position) == null)
+                isRightCliff = true;
+        }
 
         // wall check
         if (Physics2D.OverlapPoint(wallCheckerLeft.position) != null)
