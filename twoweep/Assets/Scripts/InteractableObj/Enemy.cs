@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
     void Reset() 
     {
         transform.position = init_pos;
-        isFacingRight = init_isFacingRight;
+        FaceRight(init_isFacingRight);
     }
 
     void Move() 
