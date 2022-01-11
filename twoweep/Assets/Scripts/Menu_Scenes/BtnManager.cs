@@ -21,7 +21,7 @@ public class BtnManager : MonoBehaviour
 
         SetEnable(mainGroup, false);
 
-        StartCoroutine("IEOnScene");
+        SetButtons(true);
     }
 
     void Start()
@@ -35,9 +35,19 @@ public class BtnManager : MonoBehaviour
         
     }
 
-    IEnumerator IEOnScene()
+    public void SetButtons(bool b) 
     {
-        yield return new WaitForSeconds(0.5f);
+        if (b)
+            StartCoroutine("IEOnButtons");
+        else
+            StartCoroutine("IEOffButtons");
+    }
+
+    IEnumerator IEOnButtons()
+    {
+        SetAlpha(mainGroup, 1f);
+
+        yield return new WaitForSeconds(0.1f);
         
         animPlay.SetBool("on", true);
 
@@ -49,15 +59,43 @@ public class BtnManager : MonoBehaviour
 
         animQuit.SetBool("on", true);
 
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.3f);
 
         SetEnable(mainGroup, true);
 
-        StopCoroutine("OnScene");
+        StopCoroutine("IEOnButtons");
     }
 
-    void SetEnable(CanvasGroup cg, bool b){
+    IEnumerator IEOffButtons() 
+    {
+
+        SetEnable(mainGroup, false);
+
+        animQuit.SetBool("on", false);
+
+        yield return new WaitForSeconds(0.1f);
+
+        animOption.SetBool("on", false);
+
+        yield return new WaitForSeconds(0.1f);
+
+        animPlay.SetBool("on", false);
+
+        yield return new WaitForSeconds(0.3f);
+
+        SetAlpha(mainGroup, 0f);
+
+        StopCoroutine("IEOffButtons");
+    }
+
+    void SetEnable(CanvasGroup cg, bool b)
+    {
         cg.interactable = b;
         cg.blocksRaycasts = b;
+    }
+
+    void SetAlpha(CanvasGroup cg, float f) 
+    {
+        cg.alpha = f;
     }
 }

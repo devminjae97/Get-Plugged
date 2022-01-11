@@ -2610,7 +2610,7 @@ GameObject:
   - component: {fileID: 1333250748}
   - component: {fileID: 1333250749}
   m_Layer: 5
-  m_Name: Manager
+  m_Name: BtnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

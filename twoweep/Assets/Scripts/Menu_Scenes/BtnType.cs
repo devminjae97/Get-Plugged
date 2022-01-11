@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
+public class BtnType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     public enum buttonType
     {
@@ -24,11 +24,17 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 
 
     //mj
+    private BtnManager btnManager;
     private Animator anim;
+    private bool isHovered;
     private bool isClicked;
 
-    private void Awake() {
+    private void Awake() 
+    {
+        isHovered = false;
         isClicked = false;
+
+        if (!btnManager) btnManager = GameObject.Find("BtnManager").GetComponent<BtnManager>();
 
         if(!anim) anim = this.GetComponentInParent<Animator>();
     }
@@ -37,31 +43,19 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     {
         //defaultScale_V = buttonScale_TR.localScale;
     }
+
     public void OnBtnClick()
     {
         Debug.Log("clicked");
 
-        isClicked = true;
+        //isClicked = true;
 
-        StartCoroutine("IEBtnClick");
+        //StartCoroutine("IEBtnClick");
 
     }
 
     private IEnumerator IEBtnClick()
     {
-        if(false /*anim*/) //temp
-        {
-            //click anim
-            anim.SetTrigger("clicked");
-
-            yield return new WaitForSeconds(1f);
-
-            //off anim
-            anim.SetBool("on", false);
-
-            yield return new WaitForSeconds(0.5f);
-        }
-
         yield return new WaitForSeconds(0.1f);
 
         switch (currentType)
@@ -117,7 +111,9 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         {
             //Debug.Log(this.name + " in");
 
-            if(anim)
+            isHovered = true;
+
+            if (anim)
                 anim.SetBool("isHovered", true);
         }
 
@@ -130,8 +126,36 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         {
             //Debug.Log(this.name + " out");
 
+            isHovered = false;
+
             if(anim)
                 anim.SetBool("isHovered", false);
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (anim)
+            anim.SetBool("isClicked", true);
+    }
+
+    public void OnPointerUp(PointerEventData eventData) 
+    {
+        if (anim)
+            anim.SetBool("isClicked", false);
+
+        if (isHovered) 
+            StartCoroutine("IEBeforeButtonActivated");
+    }
+
+    IEnumerator IEBeforeButtonActivated() 
+    {
+        btnManager.SetButtons(false);
+
+        yield return new WaitForSeconds(0.7f);
+
+        StartCoroutine("IEBtnClick");
+
+        StopCoroutine("IEBeforeButtonActivated");
     }
 }
