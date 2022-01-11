@@ -8,7 +8,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
     public enum buttonType
     {
-        New,
+        Play,
         Continue,
         Option,
         Back,
@@ -22,15 +22,51 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     [SerializeField] private CanvasGroup optionGroup;
     public Animator SwitchSceneCloseAnim;
 
+
+    //mj
+    private Animator anim;
+    private bool isClicked;
+
+    private void Awake() {
+        isClicked = false;
+
+        if(!anim) anim = this.GetComponentInParent<Animator>();
+    }
+
     private void Start()
     {
-        defaultScale_V = buttonScale_TR.localScale;
+        //defaultScale_V = buttonScale_TR.localScale;
     }
     public void OnBtnClick()
     {
+        Debug.Log("clicked");
+
+        isClicked = true;
+
+        StartCoroutine("IEBtnClick");
+
+    }
+
+    private IEnumerator IEBtnClick()
+    {
+        if(false /*anim*/) //temp
+        {
+            //click anim
+            anim.SetTrigger("clicked");
+
+            yield return new WaitForSeconds(1f);
+
+            //off anim
+            anim.SetBool("on", false);
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
         switch (currentType)
         {
-            case buttonType.New:
+            case buttonType.Play:
                 SceneManager.LoadScene("SelectStage");
                 break;
             case buttonType.Continue:
@@ -52,26 +88,50 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 Application.Quit();
                 break;
         }
+
+        isClicked = false;
+
+        StopCoroutine("IEBtnClick");
     }
+
+
+
     public void CanvasGroupOn(CanvasGroup cg)
     {
         cg.alpha = 1;
         cg.interactable = true;
         cg.blocksRaycasts = true;
     }
+
     public void CanvasGroupOff(CanvasGroup cg)
     {
         cg.alpha = 0;
         cg.interactable = false;
         cg.blocksRaycasts = false;
     }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        buttonScale_TR.localScale = defaultScale_V * 1.1f;
+        //buttonScale_TR.localScale = defaultScale_V * 1.1f;
+        if(!isClicked)
+        {
+            //Debug.Log(this.name + " in");
+
+            if(anim)
+                anim.SetBool("isHovered", true);
+        }
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        buttonScale_TR.localScale = defaultScale_V;
+        //buttonScale_TR.localScale = defaultScale_V;
+        if(!isClicked)
+        {
+            //Debug.Log(this.name + " out");
+
+            if(anim)
+                anim.SetBool("isHovered", false);
+        }
     }
 }
