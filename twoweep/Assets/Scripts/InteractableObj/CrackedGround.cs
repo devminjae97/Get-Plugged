@@ -6,6 +6,7 @@ public class CrackedGround : MonoBehaviour
 {
     [SerializeField] private float timeToBreak;
     [SerializeField] private float timeToRespawn;
+    [SerializeField] private bool isUsingReverse;
     public GameObject killCollider;
     private SpriteRenderer parentSprite;
     private BoxCollider2D parent_bc;
@@ -19,6 +20,12 @@ public class CrackedGround : MonoBehaviour
         parent_bc = gameObject.transform.parent.GetComponent<BoxCollider2D>();
         bc = GetComponent<BoxCollider2D>();
         kill_bc = killCollider.GetComponent<BoxCollider2D>();
+
+        if (isUsingReverse)
+        {
+            bc.size = new Vector2(1.0f, 1.0f);
+            bc.offset = new Vector2(0.0f, 0.0f);
+        }
     }
 
     IEnumerator BreakGround()
@@ -52,19 +59,37 @@ public class CrackedGround : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         ccc = collision.gameObject.GetComponent<CapsuleCollider2D>();
-        float direction = transform.position.y - collision.gameObject.transform.position.y;
-        Debug.Log(direction);
-        if(direction < 0)
+
+        Debug.Log(collision.collider.ToString());
+        if (collision.gameObject.CompareTag("Player") && collision.collider.ToString() == "UnityEngine.CapsuleCollider2D")
         {
-            if (collision.gameObject.CompareTag("Player") && (ccc.bounds.center.y - ccc.bounds.extents.y) > (bc.bounds.center.y + bc.bounds.extents.y))
+            Debug.Log((ccc.bounds.center.y - ccc.bounds.extents.y) - (bc.bounds.center.y + bc.bounds.extents.y));
+            // float direction = transform.position.y - collision.gameObject.transform.position.y;
+            if (!isUsingReverse)
             {
-                StartCoroutine("BreakGround");
+                if ((ccc.bounds.center.y - ccc.bounds.extents.y) > (bc.bounds.center.y + bc.bounds.extents.y))
+                {
+                    StartCoroutine("BreakGround");
+
+                }
+            }
+            else
+            {
+                if ((ccc.bounds.center.y - ccc.bounds.extents.y) > (bc.bounds.center.y + bc.bounds.extents.y) ||
+                    (ccc.bounds.center.y + ccc.bounds.extents.y) < (bc.bounds.center.y - bc.bounds.extents.y))
+                {
+                    if (collision.gameObject.CompareTag("Player"))
+                    {
+                        StartCoroutine("BreakGround");
+                    }
+                }
             }
         }
-        
+
 
         /*if (collision.gameObject.CompareTag("Player") && (ccc.bounds.center.y - ccc.bounds.extents.y) > (bc.bounds.center.y + bc.bounds.extents.y))
         {
