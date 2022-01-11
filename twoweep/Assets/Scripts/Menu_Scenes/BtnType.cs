@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
@@ -30,10 +31,10 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         switch (currentType)
         {
             case buttonType.New:
-                SceneLoader.LoadSceneHandle("SelectStage", 0);
+                SceneManager.LoadScene("SelectStage");
                 break;
             case buttonType.Continue:
-                SceneLoader.LoadSceneHandle("SelectStage", 1);
+                SceneManager.LoadScene("SelectStage");
                 break;
             case buttonType.Option:
                 CanvasGroupOn(optionGroup);
@@ -45,7 +46,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 break;
             case buttonType.BackToMenu:
                 SwitchSceneCloseAnim.SetTrigger("Close");
-                SceneLoader.LoadSceneHandle("MainMenu", 0);
+                SceneManager.LoadScene("MainMenu");
                 break;
             case buttonType.Quit:
                 Application.Quit();

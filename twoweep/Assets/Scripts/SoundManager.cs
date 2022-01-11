@@ -9,7 +9,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource btnSource;
 
-    private void Start()
+    /*private void Start()
     {
         musicSource.volume = 0.1f;
         btnSource.volume = 0.1f;
@@ -23,19 +23,19 @@ public class SoundManager : MonoBehaviour
     public void SetButtonVolume(float volume)
     {
         btnSource.volume = volume;
-    }
+    }*/
 
-    public void OnSfx()
+    /*public void OnSfx()
     {
         btnSource.Play();
-    }
+    }*/
 
-    private void Awake()
+    /*private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(musicSource);
         DontDestroyOnLoad(btnSource);
-    }
+    }*/
 
 
 }

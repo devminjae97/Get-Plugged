@@ -10,11 +10,11 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private Text loadText;
     [SerializeField] private static string loadScene;
     [SerializeField] private static int loadType;
-    void Start()
+    /*void Start()
     {
         StartCoroutine(LoadScene());
-    }
-    public static void LoadSceneHandle(string _name, int _loadType)
+    }*/
+    /*public static void LoadSceneHandle(string _name, int _loadType)
     {
         loadScene = _name;
         loadType = _loadType;
@@ -22,8 +22,8 @@ public class SceneLoader : MonoBehaviour
             SceneManager.LoadScene("Loading");
         else
             SceneManager.LoadScene("MainMenu");
-    }
-    IEnumerator LoadScene()
+    }*/
+    /*IEnumerator LoadScene()
     {
         yield return null;
         AsyncOperation operation = SceneManager.LoadSceneAsync(loadScene);
@@ -36,7 +36,7 @@ public class SceneLoader : MonoBehaviour
             if (loadType == 0)
                 Debug.Log("새게임");
             else if (loadType == 1)
-                Debug.Log("로드");*/
+                Debug.Log("로드");
 
             if (progressBar.value < 0.9f)
             {
@@ -52,5 +52,5 @@ public class SceneLoader : MonoBehaviour
             }
 
         }
-    }
+    }*/
 }
