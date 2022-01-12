@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserBlock : MonoBehaviour
+public class LaserBlock : Interactor
 {
     public Transform initPos;
     public Sprite laserFlipSprite;
@@ -13,8 +13,17 @@ public class LaserBlock : MonoBehaviour
     {
         Top, Right, Bottom, Left
     }
+
     public laserDirection laserDir;
     SpriteRenderer sr;
+
+    public override void StoreInitValues() {
+        // none
+    }
+
+    public override void ResetValues() {
+        // none
+    }
 
     private void Awake()
     {

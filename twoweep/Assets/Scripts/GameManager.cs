@@ -19,9 +19,11 @@ public class GameManager : MonoBehaviour
     // serializefield로 바꾸거나 코드로 받아오기
     public List<GameObject> stages = new List<GameObject>();
 
+    private List<Interactor> interactors = new List<Interactor>();
+
     private bool isCleaningStage;
 
-    void Start() 
+    void Awake() 
     {
         menuSet.SetActive(false);
 
@@ -32,9 +34,15 @@ public class GameManager : MonoBehaviour
 
         cameraController1 = GameObject.Find("Camera1").GetComponent<CameraController>();
         cameraController2 = GameObject.Find("Camera2").GetComponent<CameraController>();
-
+        
+        foreach (Interactor i in stages[PlayerPrefs.GetInt("stageSelected") - 1].transform.Find("Interactors").GetComponentsInChildren<Interactor>())
+            interactors.Add(i);
+        
         isCleaningStage = false;
+    }
 
+    void Start() 
+    {
         ReadyStage();
     }
 
@@ -145,6 +153,9 @@ public class GameManager : MonoBehaviour
     public void RespawnPlayers() 
     {
         //sfxManager.PlaySFXDead();
+
+        foreach (Interactor i in interactors)
+            i.ResetValues();
 
         playerController1.Init();
         playerController2.Init();

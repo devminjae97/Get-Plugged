@@ -34,7 +34,7 @@ public class BtnType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         isHovered = false;
         isClicked = false;
 
-        if (!btnManager) btnManager = GameObject.Find("BtnManager").GetComponent<BtnManager>();
+        if (!btnManager && GameObject.Find("BtnManager") != null) btnManager = GameObject.Find("BtnManager").GetComponent<BtnManager>();
 
         if(!anim) anim = this.GetComponentInParent<Animator>();
     }

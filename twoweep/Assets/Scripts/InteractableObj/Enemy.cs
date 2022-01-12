@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Interactor
 {
 
     [SerializeField] private float speed = 3f;
@@ -18,7 +18,19 @@ public class Enemy : MonoBehaviour
 
     private Vector3 init_pos;
     private bool init_isFacingRight;
-    
+
+    public override void StoreInitValues() 
+    {
+        init_pos = transform.position;
+        init_isFacingRight = isFacingRight;
+    }
+
+    public override void ResetValues() 
+    {
+        transform.position = init_pos;
+        FaceRight(init_isFacingRight);
+    }
+
     void Awake() 
     {
         sr = this.GetComponent<SpriteRenderer>();
@@ -29,13 +41,12 @@ public class Enemy : MonoBehaviour
         wallCheckerLeft = transform.Find("WallCheckerLeft");
         wallCheckerRight = transform.Find("WallCheckerRight");
 
-        init_pos = transform.position;
-        init_isFacingRight = isFacingRight;
+        StoreInitValues();
     }
 
     void OnEnable() 
     {
-        Reset();
+        ResetValues();
     }
 
     void Update()
@@ -43,12 +54,7 @@ public class Enemy : MonoBehaviour
         Move();
         Flip();
     }
-
-    void Reset() 
-    {
-        transform.position = init_pos;
-        FaceRight(init_isFacingRight);
-    }
+    
 
     void Move() 
     {
