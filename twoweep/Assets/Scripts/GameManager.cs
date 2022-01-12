@@ -71,9 +71,6 @@ public class GameManager : MonoBehaviour
         playerController1.SetPlayerControllability(false);
         playerController2.SetPlayerControllability(false);
 
-        // disable camera trace
-        cameraController1.SetCameraTrace(false);
-        cameraController2.SetCameraTrace(false);
 
         // unlock stage
         PlayerPrefs.SetInt("stageReached", PlayerPrefs.GetInt("stageReached") + 1);
@@ -94,7 +91,9 @@ public class GameManager : MonoBehaviour
         // 5초뒤
         yield return new WaitForSeconds(2);
 
-
+        // disable camera trace
+        cameraController1.SetCameraTrace(false);
+        cameraController2.SetCameraTrace(false);
 
         // set next stage
         PlayerPrefs.SetInt("stageSelected", PlayerPrefs.GetInt("stageSelected") + 1);
