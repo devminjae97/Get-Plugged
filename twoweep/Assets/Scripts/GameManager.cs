@@ -154,8 +154,13 @@ public class GameManager : MonoBehaviour
     {
         //sfxManager.PlaySFXDead();
 
-        foreach (Interactor i in interactors)
+        foreach (Interactor i in interactors) 
+        {
+            if (!i.gameObject.activeSelf)
+                i.gameObject.SetActive(true);
             i.ResetValues();
+            
+        }
 
         playerController1.Init();
         playerController2.Init();
