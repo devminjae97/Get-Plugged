@@ -22,7 +22,7 @@ public class TrapButton : Interactor
     private Vector2 init_offset;
 
 
-    public override void StoreInitValues() 
+    public override void StoreInitValues()
     {
         // trap
         init_trapPos = buttonTrap.transform.position;
@@ -35,7 +35,7 @@ public class TrapButton : Interactor
         init_offset = gameObject.GetComponent<BoxCollider2D>().offset;
     }
 
-    public override void ResetValues() 
+    public override void ResetValues()
     {
         // trap
         isTrapTriggered = false;
@@ -52,14 +52,14 @@ public class TrapButton : Interactor
         gameObject.GetComponent<BoxCollider2D>().offset = init_offset;
     }
 
-    void Awake() 
+    void Awake()
     {
         boxCollider2D = transform.parent.GetComponent<BoxCollider2D>();
         sr = transform.parent.GetComponent<SpriteRenderer>();
 
         StoreInitValues();
     }
-    
+
     void Update()
     {
         if (isTrapTriggered)
@@ -70,18 +70,21 @@ public class TrapButton : Interactor
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.collider.GetType().ToString() == "UnityEngine.CapsuleCollider2D")
         {
-            sr.sprite = clickedSprite;
-            boxCollider2D.size = new Vector2(0.625f, 0.115f);
-            boxCollider2D.offset = new Vector2(0.0f, -0.245f);
-            gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.45f, 0.2f);
-            gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0.0035f, -0.23f);
-
-
-            if (!isTrapEnd)
+            Vector3 direction = transform.position - collision.gameObject.GetComponent<CapsuleCollider2D>().transform.position;
+            if (Mathf.Round(direction.normalized.y * 100) * 0.01f < -0.75f)
             {
-                isTrapTriggered = true;
+                sr.sprite = clickedSprite;
+                boxCollider2D.size = new Vector2(0.625f, 0.115f);
+                boxCollider2D.offset = new Vector2(0.0f, -0.245f);
+                gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.45f, 0.2f);
+                gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0.0035f, -0.23f);
+
+                if (!isTrapEnd)
+                {
+                    isTrapTriggered = true;
+                }
             }
         }
     }
