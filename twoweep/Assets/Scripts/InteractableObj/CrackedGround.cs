@@ -6,7 +6,6 @@ public class CrackedGround : Interactor
 {
     [SerializeField] private float timeToBreak;
     [SerializeField] private float timeToRespawn;
-    [SerializeField] private bool isUsingReverse;
 
     public GameObject killCollider;
 
@@ -14,7 +13,6 @@ public class CrackedGround : Interactor
     private BoxCollider2D parent_bc;
     private BoxCollider2D bc;
     private BoxCollider2D kill_bc;
-    private CapsuleCollider2D ccc;
 
     public override void StoreInitValues() 
     {
@@ -41,17 +39,6 @@ public class CrackedGround : Interactor
         parent_bc = gameObject.transform.parent.GetComponent<BoxCollider2D>();
         bc = GetComponent<BoxCollider2D>();
         kill_bc = killCollider.GetComponent<BoxCollider2D>();
-    }
-
-    private void Start()
-    {
-        
-
-        /*if (isUsingReverse)
-        {
-            bc.size = new Vector2(1.0f, 1.0f);
-            bc.offset = new Vector2(0.0f, 0.0f);
-        }*/
     }
 
     IEnumerator BreakGround()
