@@ -2728,7 +2728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e36ad2b0eb2fca4c99b8c7a4ecb024f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentType: 4
+  currentType: 5
   buttonScale_TR: {fileID: 1033529646}
   mainGroup: {fileID: 0}
   keyGuideGroup: {fileID: 0}
@@ -22822,6 +22822,22 @@ PrefabInstance:
     - target: {fileID: 6836652789302118600, guid: 1ce6c2a5db08e044493da810078852c5, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6836652789411367312, guid: 1ce6c2a5db08e044493da810078852c5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6836652789411367312, guid: 1ce6c2a5db08e044493da810078852c5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6836652789411367312, guid: 1ce6c2a5db08e044493da810078852c5, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6836652789411367312, guid: 1ce6c2a5db08e044493da810078852c5, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce6c2a5db08e044493da810078852c5, type: 3}
