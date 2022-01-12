@@ -5,23 +5,39 @@ using UnityEngine;
 public class BtnManager : MonoBehaviour
 {
     private CanvasGroup mainGroup;
-    private CanvasGroup optionGroup;
+    private CanvasGroup keyGuideGroup;
 
     private Animator animPlay;
-    private Animator animOption;
+    private Animator animKey;
     private Animator animQuit;
+    private Animator animBack;
 
-    void Awake() {
+    private
+
+    void Awake() 
+    {
         mainGroup = GameObject.Find("MainMenu").GetComponent<CanvasGroup>();
+        keyGuideGroup = GameObject.Find("KeyGuideMenu").GetComponent<CanvasGroup>();
 
         animPlay = GameObject.Find("Btn_play").GetComponent<Animator>();
-        animOption = GameObject.Find("Btn_opt").GetComponent<Animator>();
+        animKey = GameObject.Find("Btn_key").GetComponent<Animator>();
         animQuit = GameObject.Find("Btn_quit").GetComponent<Animator>();
+        animBack = GameObject.Find("Btn_back").GetComponent<Animator>();
+
+        animPlay.SetBool("on", false);
+        animPlay.SetBool("isClicked", false);
+        animPlay.SetBool("isHovered", false);
+        animKey.SetBool("on", false);
+        animKey.SetBool("isClicked", false);
+        animKey.SetBool("isHovered", false);
+        animQuit.SetBool("on", false);
+        animQuit.SetBool("isClicked", false);
+        animQuit.SetBool("isHovered", false);
 
 
         SetEnable(mainGroup, false);
 
-        SetButtons(true);
+        SetMainMenu(true);
     }
 
     void Start()
@@ -35,15 +51,15 @@ public class BtnManager : MonoBehaviour
         
     }
 
-    public void SetButtons(bool b) 
+    public void SetMainMenu(bool b) 
     {
         if (b)
-            StartCoroutine("IEOnButtons");
+            StartCoroutine("IEMainMenuOn");
         else
-            StartCoroutine("IEOffButtons");
+            StartCoroutine("IEMainMenuOff");
     }
 
-    IEnumerator IEOnButtons()
+    IEnumerator IEMainMenuOn()
     {
         SetAlpha(mainGroup, 1f);
 
@@ -53,7 +69,7 @@ public class BtnManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
 
-        animOption.SetBool("on", true);
+        animKey.SetBool("on", true);
 
         yield return new WaitForSeconds(0.1f);
 
@@ -63,29 +79,69 @@ public class BtnManager : MonoBehaviour
 
         SetEnable(mainGroup, true);
 
-        StopCoroutine("IEOnButtons");
+        StopCoroutine("IEMainMenuOn");
     }
 
-    IEnumerator IEOffButtons() 
+    IEnumerator IEMainMenuOff() 
     {
+        if(mainGroup.alpha == 1)
+        {
+            SetEnable(mainGroup, false);
 
-        SetEnable(mainGroup, false);
+            animQuit.SetBool("on", false);
 
-        animQuit.SetBool("on", false);
+            yield return new WaitForSeconds(0.1f);
+
+            animKey.SetBool("on", false);
+
+            yield return new WaitForSeconds(0.1f);
+
+            animPlay.SetBool("on", false);
+
+            yield return new WaitForSeconds(0.3f);
+
+            SetAlpha(mainGroup, 0f);
+        }
+        StopCoroutine("IEMainMenuOff");
+    }
+
+    public void SetKeyGuideMenu(bool b)
+    {
+        if (b)
+            StartCoroutine("IEKeyGuideMenuOn");
+        else
+            StartCoroutine("IEKeyGuideMenuOff");
+    }
+
+    IEnumerator IEKeyGuideMenuOn()
+    {
+        SetAlpha(keyGuideGroup, 1f);
 
         yield return new WaitForSeconds(0.1f);
 
-        animOption.SetBool("on", false);
-
-        yield return new WaitForSeconds(0.1f);
-
-        animPlay.SetBool("on", false);
+        animBack.SetBool("on", true);
 
         yield return new WaitForSeconds(0.3f);
 
-        SetAlpha(mainGroup, 0f);
+        SetEnable(keyGuideGroup, true);
 
-        StopCoroutine("IEOffButtons");
+        StopCoroutine("IEKeyGuideMenuOn");
+    }
+
+    IEnumerator IEKeyGuideMenuOff() 
+    {
+        if(keyGuideGroup.alpha == 1)
+        {
+            SetEnable(keyGuideGroup, false);
+
+            animBack.SetBool("on", false);
+
+            yield return new WaitForSeconds(0.3f);
+
+            SetAlpha(keyGuideGroup, 0f);
+        }
+
+        StopCoroutine("IEKeyGuideMenuOff");
     }
 
     void SetEnable(CanvasGroup cg, bool b)

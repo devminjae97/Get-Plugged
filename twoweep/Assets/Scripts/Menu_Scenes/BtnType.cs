@@ -10,7 +10,7 @@ public class BtnType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         Play,
         Continue,
-        Option,
+        Key,
         Back,
         Quit,
         BackToMenu
@@ -19,7 +19,7 @@ public class BtnType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     [SerializeField] private Transform buttonScale_TR;
     Vector3 defaultScale_V;
     [SerializeField] private CanvasGroup mainGroup;
-    [SerializeField] private CanvasGroup optionGroup;
+    [SerializeField] private CanvasGroup keyGuideGroup;
     public Animator SwitchSceneCloseAnim;
 
 
@@ -66,13 +66,13 @@ public class BtnType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
             case buttonType.Continue:
                 SceneManager.LoadScene("SelectStage");
                 break;
-            case buttonType.Option:
-                CanvasGroupOn(optionGroup);
-                CanvasGroupOff(mainGroup);
+            case buttonType.Key:
+                //CanvasGroupOn(keyGuideGroup);
+                //CanvasGroupOff(mainGroup);
+                btnManager.SetKeyGuideMenu(true);
                 break;
             case buttonType.Back:
-                CanvasGroupOn(mainGroup);
-                CanvasGroupOff(optionGroup);
+                btnManager.SetMainMenu(true);
                 break;
             case buttonType.BackToMenu:
                 SwitchSceneCloseAnim.SetTrigger("Close");
@@ -150,9 +150,10 @@ public class BtnType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
 
     IEnumerator IEBeforeButtonActivated() 
     {
-        btnManager.SetButtons(false);
+        btnManager.SetMainMenu(false);
+        btnManager.SetKeyGuideMenu(false);
 
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.4f);
 
         StartCoroutine("IEBtnClick");
 

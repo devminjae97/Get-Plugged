@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: btn_opt_idle
+  m_Name: btn_quit_hovered
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -3916065031272263935, guid: dc98985be04e3994a97ee7d6e31ebd9a, type: 3}
+      value: {fileID: 1795625077559047554, guid: dc98985be04e3994a97ee7d6e31ebd9a, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -40,7 +40,7 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -3916065031272263935, guid: dc98985be04e3994a97ee7d6e31ebd9a, type: 3}
+    - {fileID: 1795625077559047554, guid: dc98985be04e3994a97ee7d6e31ebd9a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
