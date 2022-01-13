@@ -242,7 +242,12 @@ public class PlayerController : MonoBehaviour
     void Jump() 
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        {
+            // reset velocity
+            rigid.velocity = Vector2.zero;
+            
             rigid.AddForce(Vector3.up * jumpPower * reversedDirection, ForceMode2D.Impulse);
+        }
         
         // set Terminal Velocity
         if (rigid.velocity.y * reversedDirection <= terminalVelocity)   // 반대로?
