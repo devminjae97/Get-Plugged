@@ -101,7 +101,8 @@ public class Enemy : Interactor
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.CompareTag("Trap")) {
+        if (other.CompareTag("Trap")) 
+        {
             this.gameObject.SetActive(false);
         }
     }
