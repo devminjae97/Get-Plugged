@@ -8,8 +8,8 @@ public class ObjectTransformButton : Interactor
     public Transform generateObjectParent;
     public Transform destroyObjectParent;
 
-    List<Transform> generateObjectList = new List<Transform>();
-    List<Transform> destroyObjectList = new List<Transform>();
+    List<Transform> generateObjectList;
+    List<Transform> destroyObjectList;
 
     BoxCollider2D boxCollider2D;
     SpriteRenderer sr;
@@ -58,6 +58,9 @@ public class ObjectTransformButton : Interactor
         boxCollider2D = transform.parent.GetComponent<BoxCollider2D>();
         sr = transform.parent.GetComponent<SpriteRenderer>();
 
+        generateObjectList = new List<Transform>();
+        destroyObjectList = new List<Transform>();
+
         if (generateObjectParent)
         {
             for (int i = 0; i < generateObjectParent.childCount; i++)
@@ -77,11 +80,16 @@ public class ObjectTransformButton : Interactor
         StoreInitValues();
     }
 
+    private void OnEnable() 
+    {    
+        ResetValues();
+    }
 
     void GenerateObjects()
     {
         foreach (Transform t in generateObjectList)
         {
+            Debug.Log("Gen " + t.gameObject.name);
             t.gameObject.SetActive(true);
         }
     }
@@ -90,6 +98,7 @@ public class ObjectTransformButton : Interactor
     {
         foreach (Transform t in destroyObjectList)
         {
+            Debug.Log("Dist " + t.gameObject.name);
             t.gameObject.SetActive(false);
         }
     }
