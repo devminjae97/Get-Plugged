@@ -374,6 +374,8 @@ public class PlayerController : MonoBehaviour
             // set sprite direction & play anim
             goalFlag.GetComponent<SpriteRenderer>().flipX = !isFacingRight;
             goalFlag.GetComponent<Animator>().SetBool("isPlugging", true);
+
+            this.GetComponent<Rigidbody2D>().gravityScale = 0f;
         }
         // unplug
         else
