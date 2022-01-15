@@ -35,21 +35,25 @@ public class ObjectTransformButton : Interactor
 
     public override void ResetValues()
     {
-        // button
-        sr.sprite = init_sprite;
-        boxCollider2D.size = init_parentSize;
-        boxCollider2D.offset = init_parentOffset;
-        gameObject.GetComponent<BoxCollider2D>().size = init_size;
-        gameObject.GetComponent<BoxCollider2D>().offset = init_offset;
+        if (sr) 
+        {
+            // button
+            sr.sprite = init_sprite;
+            boxCollider2D.size = init_parentSize;
+            boxCollider2D.offset = init_parentOffset;
+            gameObject.GetComponent<BoxCollider2D>().size = init_size;
+            gameObject.GetComponent<BoxCollider2D>().offset = init_offset;
 
-        // objects
-        foreach (Transform t in generateObjectList)
-        {
-            t.gameObject.SetActive(false);
-        }
-        foreach (Transform t in destroyObjectList)
-        {
-            t.gameObject.SetActive(true);
+
+            // objects
+            foreach (Transform t in generateObjectList) {
+                t.gameObject.SetActive(false);
+                //Debug.Log("----[" + t.name + "]");
+            }
+            foreach (Transform t in destroyObjectList) {
+                t.gameObject.SetActive(true);
+                //Debug.Log("----[" + t.name + "]");
+            }
         }
     }
 
@@ -63,18 +67,26 @@ public class ObjectTransformButton : Interactor
 
         if (generateObjectParent)
         {
+            /*
             for (int i = 0; i < generateObjectParent.childCount; i++)
             {
                 generateObjectList.Add(generateObjectParent.GetChild(i));
             }
+            */
+            foreach (Transform tr in generateObjectParent.GetComponentsInChildren<Transform>(true))
+                generateObjectList.Add(tr);
         }
 
         if (destroyObjectParent)
         {
+            /*
             for (int i = 0; i < destroyObjectParent.childCount; i++)
             {
                 destroyObjectList.Add(destroyObjectParent.GetChild(i));
             }
+            */
+            foreach (Transform tr in destroyObjectParent.GetComponentsInChildren<Transform>(true))
+                destroyObjectList.Add(tr);
         }
 
         StoreInitValues();
@@ -85,11 +97,15 @@ public class ObjectTransformButton : Interactor
         ResetValues();
     }
 
+    private void OnDisable() {
+        
+    }
+
     void GenerateObjects()
     {
         foreach (Transform t in generateObjectList)
         {
-            Debug.Log("Gen " + t.gameObject.name);
+            //Debug.Log("Gen " + t.gameObject.name);
             t.gameObject.SetActive(true);
         }
     }
@@ -98,7 +114,7 @@ public class ObjectTransformButton : Interactor
     {
         foreach (Transform t in destroyObjectList)
         {
-            Debug.Log("Dist " + t.gameObject.name);
+            //Debug.Log("Dest " + t.gameObject.name);
             t.gameObject.SetActive(false);
         }
     }

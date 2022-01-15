@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         cameraController1 = GameObject.Find("Camera1").GetComponent<CameraController>();
         cameraController2 = GameObject.Find("Camera2").GetComponent<CameraController>();
         
-        foreach (Interactor i in stages[PlayerPrefs.GetInt("stageSelected") - 1].transform.Find("Interactors").GetComponentsInChildren<Interactor>())
+        foreach (Interactor i in stages[PlayerPrefs.GetInt("stageSelected") - 1].transform.Find("Interactors").GetComponentsInChildren<Interactor>(true))
             interactors.Add(i);
         
         isCleaningStage = false;
@@ -115,6 +115,10 @@ public class GameManager : MonoBehaviour
 
     void ReadyStage() 
     {
+        
+        foreach (Interactor i in stages[PlayerPrefs.GetInt("stageSelected") - 1].transform.Find("Interactors").GetComponentsInChildren<Interactor>(true))
+            interactors.Add(i);
+
         // get & set num of next stage
         SetPlayerReady(PlayerPrefs.GetInt("stageSelected"));
         
@@ -156,8 +160,14 @@ public class GameManager : MonoBehaviour
 
         foreach (Interactor i in interactors) 
         {
-            if (!i.gameObject.activeSelf)
+            Debug.Log("[" +i.transform.parent.parent.name + " > " + i.transform.parent.name + " > " + i.name + "]");
+
+            if (!i.gameObject.activeSelf) {
                 i.gameObject.SetActive(true);
+
+                //test
+                Debug.Log(" --> setActive True");
+            }
             i.ResetValues();
             
         }

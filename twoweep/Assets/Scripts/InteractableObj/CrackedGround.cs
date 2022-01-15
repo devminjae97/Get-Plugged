@@ -21,16 +21,23 @@ public class CrackedGround : Interactor
 
     public override void ResetValues() 
     {
-        parentSprite.enabled = true;
-        parent_bc.enabled = true;
-        bc.enabled = true;
-        kill_bc.enabled = true;
+        if (parentSprite) 
+        {
+            parentSprite.enabled = true;
+            parent_bc.enabled = true;
+            bc.enabled = true;
+            kill_bc.enabled = true;
 
-        if (gameObject.transform.childCount > 0) 
-            for (int i = 0; i < gameObject.transform.childCount; i++)
-                gameObject.transform.GetChild(i).gameObject.SetActive(true);
+            if (gameObject.transform.childCount > 0)
+                for (int i = 0; i < gameObject.transform.childCount; i++)
+                    gameObject.transform.GetChild(i).gameObject.SetActive(true);
 
-        StopCoroutine("BreakGround");
+            StopCoroutine("BreakGround");
+        }
+    }
+
+    private void OnEnable() {
+        ResetValues();
     }
 
     private void Awake() 

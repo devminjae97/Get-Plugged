@@ -35,21 +35,24 @@ public class TrapButton : Interactor
         init_offset = gameObject.GetComponent<BoxCollider2D>().offset;
     }
 
-    public override void ResetValues()
+    public override void ResetValues() 
     {
-        // trap
-        isTrapTriggered = false;
-        isTrapEnd = false;
-        buttonTrap.tag = "Trap";
-        buttonTrap.GetComponent<BoxCollider2D>().isTrigger = true;
-        buttonTrap.transform.position = init_trapPos;
+        if (boxCollider2D) 
+        {
+            // trap
+            isTrapTriggered = false;
+            isTrapEnd = false;
+            buttonTrap.tag = "Trap";
+            buttonTrap.GetComponent<BoxCollider2D>().isTrigger = true;
+            buttonTrap.transform.position = init_trapPos;
 
-        // button
-        sr.sprite = init_sprite;
-        boxCollider2D.size = init_parentSize;
-        boxCollider2D.offset = init_parentOffset;
-        gameObject.GetComponent<BoxCollider2D>().size = init_size;
-        gameObject.GetComponent<BoxCollider2D>().offset = init_offset;
+            // button
+            sr.sprite = init_sprite;
+            boxCollider2D.size = init_parentSize;
+            boxCollider2D.offset = init_parentOffset;
+            gameObject.GetComponent<BoxCollider2D>().size = init_size;
+            gameObject.GetComponent<BoxCollider2D>().offset = init_offset;
+        }
     }
 
     void Awake()
