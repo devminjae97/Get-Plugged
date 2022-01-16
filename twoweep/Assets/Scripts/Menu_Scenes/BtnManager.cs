@@ -48,7 +48,8 @@ public class BtnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+            OnESCInKeyGuideMenu();
     }
 
     public void SetMainMenu(bool b) 
@@ -153,5 +154,22 @@ public class BtnManager : MonoBehaviour
     void SetAlpha(CanvasGroup cg, float f) 
     {
         cg.alpha = f;
+    }
+
+    // quit OnESCInKeyGuideMenu 넣기
+    void OnESCInKeyGuideMenu()
+    {
+        if(keyGuideGroup.alpha== 1)
+            StartCoroutine("IEOnESCKeyGuideMenu");
+    }
+
+    IEnumerator IEOnESCKeyGuideMenu()
+    {
+        SetMainMenu(false);
+        SetKeyGuideMenu(false);
+        
+        yield return new WaitForSeconds(0.5f);
+
+        SetMainMenu(true);
     }
 }
