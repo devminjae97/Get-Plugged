@@ -218,6 +218,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!224 &107673876 stripped
@@ -416,6 +452,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!1001 &309749768
@@ -513,6 +585,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!1 &475524274
@@ -670,6 +778,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!224 &481412530 stripped
@@ -777,6 +921,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!224 &522814797 stripped
@@ -986,6 +1166,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!1001 &789176554
@@ -1083,6 +1299,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!224 &789176555 stripped
@@ -1185,6 +1437,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!224 &791902553 stripped
@@ -1431,6 +1719,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!224 &974266743 stripped
@@ -1533,6 +1857,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!224 &1216099199 stripped
@@ -1706,6 +2066,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!224 &1406100124 stripped
@@ -1808,6 +2204,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!224 &1504455655 stripped
@@ -1910,6 +2342,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!224 &1581943090 stripped
@@ -2151,6 +2619,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
 --- !u!1 &1831809115
@@ -2336,5 +2840,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageButton (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[0]
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 6601332573495093340, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: bnts.Array.data[2]
+      value: 
+      objectReference: {fileID: 3007045598310383858, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7343352784882105794, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: -6047156352815879130, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+    - target: {fileID: 7621391562222910769, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 8645854716529330984, guid: 02937742c1e75f845afcc460f638934f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0635e569e3c9174897a0922a1a5bec4, type: 3}
