@@ -151,6 +151,7 @@ MonoBehaviour:
   - {fileID: -7431393666192580205, guid: 02937742c1e75f845afcc460f638934f, type: 3}
   - {fileID: 4112197829521069377, guid: 02937742c1e75f845afcc460f638934f, type: 3}
   - {fileID: 6967021925902488633, guid: 02937742c1e75f845afcc460f638934f, type: 3}
+  btns: []
 --- !u!1 &4761355806636710823
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 81, y: 81}
+  m_SizeDelta: {x: 108, y: 108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7997088886976314787
 CanvasRenderer:

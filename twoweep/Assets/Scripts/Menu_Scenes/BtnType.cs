@@ -61,10 +61,10 @@ public class BtnType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         switch (currentType)
         {
             case buttonType.Play:
-                SceneManager.LoadScene("SelectStage");
+                SceneManager.LoadScene("StageScene");
                 break;
             case buttonType.Continue:
-                SceneManager.LoadScene("SelectStage");
+                SceneManager.LoadScene("StageScene");
                 break;
             case buttonType.Key:
                 //CanvasGroupOn(keyGuideGroup);
@@ -76,7 +76,7 @@ public class BtnType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
                 break;
             case buttonType.BackToMenu:
                 SwitchSceneCloseAnim.SetTrigger("Close");
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("MainScene");
                 break;
             case buttonType.Quit:
                 Application.Quit();

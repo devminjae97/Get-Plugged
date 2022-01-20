@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour {
 
     private bool isTracePlayer;
 
-    static private float speed = 2f;
+    static private float speed = 4f;
 
     void Awake() {
         posZ = transform.position.z;

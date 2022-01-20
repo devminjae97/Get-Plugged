@@ -77,6 +77,12 @@ TextureImporter:
   - first:
       213: 1027899414542897580
     second: mainmenu_button_24
+  - first:
+      213: -3055464534993220640
+    second: mainmenu_button_25
+  - first:
+      213: 7900823919303936617
+    second: mainmenu_button_26
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -698,6 +704,48 @@ TextureImporter:
       bones: []
       spriteID: ca159ac4215d34e00800000000000000
       internalID: 1027899414542897580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainmenu_button_25
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 81
+        width: 72
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ebcce7a13fc895d0800000000000000
+      internalID: -3055464534993220640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainmenu_button_26
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 81
+        width: 72
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a45078e7d55ad60800000000000000
+      internalID: 7900823919303936617
       vertices: []
       indices: 
       edges: []

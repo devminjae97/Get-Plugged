@@ -14,8 +14,11 @@ public class StageButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [SerializeField] private List<Sprite> nums = new List<Sprite>();
     [SerializeField] private List<Sprite> btns = new List<Sprite>();
 
+    private StageManager stageManager;
+    //private zTestStageManager stageManager;  //test
+
     private Button btn;
-    private Image sprite_btn;
+    private Image img;
 
     Color colorBG;
     Color colorWH;
@@ -28,9 +31,15 @@ public class StageButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     void Awake() 
     {
-        isLocked = true;
+        stageManager = GameObject.Find("SM").GetComponent<StageManager>();
+        //stageManager = GameObject.Find("SM").GetComponent<zTestStageManager>();//test
+
         btn = this.GetComponent<Button>();
-        sprite_btn = btn.image;
+        img = btn.image;
+
+        isLocked = true;
+        isHovered = false;
+        isClicked = false;
 
         ColorUtility.TryParseHtmlString("#222034", out colorBG);
         colorWH = new Color(1f, 1f, 1f, 1f);
@@ -39,7 +48,7 @@ public class StageButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void Start()
     {
         //test
-        SetNumber(17);
+        //SetNumber(17);
     }
 
     public void SetNumber(int n) 
@@ -52,9 +61,23 @@ public class StageButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         isLocked = b;
 
         if (!b)
+        {
+            img.sprite = btns[0];
             ShowNumber(number);
+        }
         else
+        {
+            img.sprite = btns[2];
             ShowNumber(-1);
+        }
+    }
+
+    public void SetClear()
+    {
+        isLocked = true;
+
+        img.sprite= btns[3];
+        ShowNumber(-1);
     }
 
     private void ShowNumber(int n) 
@@ -79,7 +102,7 @@ public class StageButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData e) 
     {
-        if (btn.interactable) 
+        if (btn.interactable && !isLocked && !isClicked) 
         {
             isHovered = true;
 
@@ -87,14 +110,13 @@ public class StageButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             sprite_num1.color = this.colorBG;
             sprite_num2.color = this.colorBG;
 
-            if(!isClicked)
-                sprite_btn.sprite = btns[1];
+            img.sprite = btns[1];
         }
     }
 
     public void OnPointerExit(PointerEventData e)
     {
-        if (btn.interactable) 
+        if (btn.interactable && !isLocked && !isClicked) 
         {
             isHovered = false;
 
@@ -102,13 +124,13 @@ public class StageButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             sprite_num1.color = this.colorWH;
             sprite_num2.color = this.colorWH;
 
-            sprite_btn.sprite = btns[0];
+            img.sprite = btns[0];
         }
     }
 
     public void OnPointerDown(PointerEventData e) 
     {
-        if (btn.interactable) 
+        if (btn.interactable && !isLocked) 
         {
             isClicked = true;
 
@@ -116,20 +138,21 @@ public class StageButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             sprite_num1.color = this.colorWH;
             sprite_num2.color = this.colorWH;
             
-            sprite_btn.sprite = btns[0];
+            img.sprite = btns[0];
         }
     }
 
     public void OnPointerUp(PointerEventData e) 
     {
-        if (btn.interactable) 
+        if (btn.interactable && !isLocked && isClicked) 
         {
             isClicked = false;
 
-            if (isHovered) {
-                isHovered = false;
-
+            if(isHovered)
+            {
                 Debug.Log("to stage " + number);
+            
+                stageManager.SelectStage(number);
             }
         }
     }

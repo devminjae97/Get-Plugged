@@ -40,16 +40,13 @@ public class BtnManager : MonoBehaviour
         SetMainMenu(true);
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
             OnESCInKeyGuideMenu();
+
+        // test code for Dev. & Testers
+        TypeDevCodes();
     }
 
     public void SetMainMenu(bool b) 
@@ -156,7 +153,6 @@ public class BtnManager : MonoBehaviour
         cg.alpha = f;
     }
 
-    // quit OnESCInKeyGuideMenu 넣기
     void OnESCInKeyGuideMenu()
     {
         if(keyGuideGroup.alpha== 1)
@@ -171,5 +167,75 @@ public class BtnManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         SetMainMenu(true);
+    }
+
+
+    // for testers & developers
+
+    private char[] unlockCodeL = {'u', 'n', 'l', 'o', 'c', 'k'};
+    private char[] unlockCodeU = {'U', 'N', 'L', 'O', 'C', 'K'};
+
+    private char[] resetCodeL = {'r', 'e', 's', 'e', 't'};
+    private char[] resetCodeU = {'R', 'E', 'S', 'E', 'T'};
+
+    private List<char> inputCode = new List<char>();
+
+    private void TypeDevCodes()
+    {
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            if(IsUnlockCode())
+            {
+                int nos = 30;   // num of stages
+                Debug.Log("Unlock 1 to " + nos + " stages.");
+                PlayerPrefs.SetInt("stageReached", 30);
+            }
+            else if(IsResetCode())
+            {
+                Debug.Log("Reset all stages.");
+                PlayerPrefs.SetInt("stageReached", 1);
+            }
+
+            inputCode = new List<char>();
+        }
+        else if(Input.anyKeyDown)
+        {
+            foreach(char c in Input.inputString)
+                inputCode.Add(c);
+        }
+    }
+
+    private bool IsUnlockCode()
+    {
+        if(inputCode.Count == 6)
+        {
+            for(int i = 0; i < 6; i++)
+            {
+                if(!(inputCode[i] == unlockCodeL[i] || inputCode[i] == unlockCodeU[i]))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+
+    private bool IsResetCode()
+    {
+        if(inputCode.Count == 5)
+        {
+            for(int i = 0; i < 5; i++)
+            {
+                if(!(inputCode[i] == resetCodeL[i] || inputCode[i] == resetCodeU[i]))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        else
+            return false;
     }
 }
