@@ -8543,9 +8543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuSet: {fileID: 1091526059}
-  stages:
-  - {fileID: 1338208586}
-  - {fileID: 2101632746}
+  stageParent: {fileID: 624269390}
 --- !u!1001 &159793060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14065,6 +14063,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4546075375571261732, guid: b374c04781ff7a24f8eda557a2f6c542, type: 3}
   m_PrefabInstance: {fileID: 321631023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &323096064 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2092909374747365070, guid: 50908d67fccd91a41b1d4f7095433657, type: 3}
+  m_PrefabInstance: {fileID: 1650788413}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &325214150
 GameObject:
@@ -69990,7 +69993,7 @@ MonoBehaviour:
   buttonScale_TR: {fileID: 206846707}
   mainGroup: {fileID: 0}
   keyGuideGroup: {fileID: 0}
-  SwitchSceneCloseAnim: {fileID: 0}
+  SwitchSceneCloseAnim: {fileID: 323096064}
 --- !u!114 &1704847457
 MonoBehaviour:
   m_ObjectHideFlags: 0

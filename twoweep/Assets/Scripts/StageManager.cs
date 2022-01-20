@@ -70,8 +70,8 @@ public class StageManager : MonoBehaviour
             
             if(s > numOfStages)
                 buttons[i].GetComponent<StageButton>().SetClear();
-            else if(s > stageReached)
-                buttons[i].GetComponent<StageButton>().Lock(true);
+            /*else if(s > stageReached)
+                buttons[i].GetComponent<StageButton>().Lock(true);*/
             else
                 buttons[i].GetComponent<StageButton>().Lock(false);
         }
@@ -164,6 +164,6 @@ public class StageManager : MonoBehaviour
 
         yield return new WaitForSeconds(mouseDisabledTime);
 
-        SceneManager.LoadScene("SceneMJ");
+        SceneManager.LoadScene("InGameScene");
     }
 }

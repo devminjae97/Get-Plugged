@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour
     private CameraController cameraController2;
 
     // serializefield로 바꾸거나 코드로 받아오기
-    public List<GameObject> stages = new List<GameObject>();
+    // public List<GameObject> stages = new List<GameObject>();
+    [SerializeField] private GameObject stageParent;
+    //GameObject[] stages;
 
     private List<Interactor> interactors = new List<Interactor>();
 
@@ -35,7 +37,9 @@ public class GameManager : MonoBehaviour
         cameraController1 = GameObject.Find("Camera1").GetComponent<CameraController>();
         cameraController2 = GameObject.Find("Camera2").GetComponent<CameraController>();
         
-        foreach (Interactor i in stages[PlayerPrefs.GetInt("stageSelected") - 1].transform.Find("Interactors").GetComponentsInChildren<Interactor>(true))
+        //stages = stageParent.transform.child
+
+        foreach (Interactor i in stageParent.transform.GetChild(PlayerPrefs.GetInt("stageSelected") - 1).transform.Find("Interactors").GetComponentsInChildren<Interactor>(true))
             interactors.Add(i);
         
         isCleaningStage = false;
@@ -116,15 +120,15 @@ public class GameManager : MonoBehaviour
     void ReadyStage() 
     {
         
-        foreach (Interactor i in stages[PlayerPrefs.GetInt("stageSelected") - 1].transform.Find("Interactors").GetComponentsInChildren<Interactor>(true))
+        foreach (Interactor i in stageParent.transform.GetChild(PlayerPrefs.GetInt("stageSelected") - 1).transform.Find("Interactors").GetComponentsInChildren<Interactor>(true))
             interactors.Add(i);
 
         // get & set num of next stage
         SetPlayerReady(PlayerPrefs.GetInt("stageSelected"));
         
         // set camera position
-        cameraController1.SetCameraPos(stages[PlayerPrefs.GetInt("stageSelected") - 1].transform.position.y);
-        cameraController2.SetCameraPos(stages[PlayerPrefs.GetInt("stageSelected") - 1].transform.position.y);
+        cameraController1.SetCameraPos(stageParent.transform.GetChild(PlayerPrefs.GetInt("stageSelected") - 1).transform.position.y);
+        cameraController2.SetCameraPos(stageParent.transform.GetChild(PlayerPrefs.GetInt("stageSelected") - 1).transform.position.y);
 
         // enable camera trace
         cameraController1.SetCameraTrace(true);
@@ -142,8 +146,8 @@ public class GameManager : MonoBehaviour
             playerController1.Plug(false);
             playerController2.Plug(false);
         
-            playerController1.SetStartPoint(stages[currentStage - 1].transform.Find("StartFlag1").gameObject);
-            playerController2.SetStartPoint(stages[currentStage - 1].transform.Find("StartFlag2").gameObject);
+            playerController1.SetStartPoint(stageParent.transform.GetChild(currentStage - 1).transform.Find("StartFlag1").gameObject);
+            playerController2.SetStartPoint(stageParent.transform.GetChild(currentStage - 1).transform.Find("StartFlag2").gameObject);
 
             playerController1.Init();
             playerController2.Init();

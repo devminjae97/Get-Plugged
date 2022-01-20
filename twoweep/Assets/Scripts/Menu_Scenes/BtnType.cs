@@ -47,7 +47,8 @@ public class BtnType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     public void OnBtnClick()
     {
         Debug.Log("clicked");
-
+        SwitchSceneCloseAnim.SetTrigger("Close");
+        SceneManager.LoadScene("MainScene");
         //isClicked = true;
 
         //StartCoroutine("IEBtnClick");
@@ -79,7 +80,8 @@ public class BtnType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
                 SceneManager.LoadScene("MainScene");
                 break;
             case buttonType.Quit:
-                Application.Quit();
+                // Application.Quit();
+                SceneManager.LoadScene("MainScene");
                 break;
         }
 
