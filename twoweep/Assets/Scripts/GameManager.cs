@@ -27,8 +27,6 @@ public class GameManager : MonoBehaviour
 
     void Awake() 
     {
-        menuSet.SetActive(false);
-
         sfxManager = GameObject.Find("SFXM").GetComponent<SFXManager>();
 
         playerController1 = GameObject.Find("Player1").GetComponent<PlayerController>();
@@ -36,7 +34,10 @@ public class GameManager : MonoBehaviour
 
         cameraController1 = GameObject.Find("Camera1").GetComponent<CameraController>();
         cameraController2 = GameObject.Find("Camera2").GetComponent<CameraController>();
-        
+
+
+        menuSet.SetActive(false);
+
         //stages = stageParent.transform.child
 
         foreach (Interactor i in stageParent.transform.GetChild(PlayerPrefs.GetInt("stageSelected") - 1).transform.Find("Interactors").GetComponentsInChildren<Interactor>(true))
@@ -70,8 +71,11 @@ public class GameManager : MonoBehaviour
             //Submenu
             if (menuSet.activeSelf)
                 menuSet.SetActive(false);
-            else
+            else 
+            {
                 menuSet.SetActive(true);
+                menuSet.transform.Find("StageNumber").GetComponent<StageNumber>().SetStageNumber(PlayerPrefs.GetInt("stageSelected"));
+            }
         }
     }
 
