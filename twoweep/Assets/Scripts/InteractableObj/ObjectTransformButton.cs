@@ -125,7 +125,7 @@ public class ObjectTransformButton : Interactor
         {
             Vector3 direction = transform.position - collision.gameObject.GetComponent<CapsuleCollider2D>().transform.position;
             Debug.Log(Mathf.Round(direction.normalized.y * 100) * 0.01f);
-            if (Mathf.Round(direction.normalized.y * 100) * 0.01f < -0.75f)
+            if (Mathf.Round(direction.normalized.y * 100) * 0.01f < -0.7f)
             {
                 sr.sprite = clickedSprite;
                 boxCollider2D.size = new Vector2(0.625f, 0.115f);
