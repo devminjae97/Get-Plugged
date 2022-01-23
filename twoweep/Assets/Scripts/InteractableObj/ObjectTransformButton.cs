@@ -124,7 +124,7 @@ public class ObjectTransformButton : Interactor
         if (collision.collider.GetType().ToString() == "UnityEngine.CapsuleCollider2D")
         {
             Vector3 direction = transform.position - collision.gameObject.GetComponent<CapsuleCollider2D>().transform.position;
-            Debug.Log(direction);
+            Debug.Log(Mathf.Round(direction.normalized.y * 100) * 0.01f);
             if (Mathf.Round(direction.normalized.y * 100) * 0.01f < -0.75f)
             {
                 sr.sprite = clickedSprite;

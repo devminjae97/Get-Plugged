@@ -6,6 +6,7 @@ public class TrapButton : Interactor
 {
     public Sprite clickedSprite;
     public GameObject buttonTrap;
+    public GameObject NormalTile;
     [SerializeField] private float trapSpeed;
     private bool isTrapTriggered = false;
     private bool isTrapEnd = false;
@@ -96,10 +97,15 @@ public class TrapButton : Interactor
     {
         if (other.gameObject == buttonTrap)
         {
-            isTrapTriggered = false;
-            isTrapEnd = true;
+            SetTrapProps();
             other.gameObject.tag = "Ground";
             other.isTrigger = false;
         }
+    }
+
+    public void SetTrapProps()
+    {
+        isTrapTriggered = false;
+        isTrapEnd = true;
     }
 }

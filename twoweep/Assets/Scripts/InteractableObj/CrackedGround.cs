@@ -72,11 +72,12 @@ public class CrackedGround : Interactor
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Debug.Log(Mathf.Round(direction.normalized.y * 100) * 0.01f);
+        
         if (collision.collider.GetType().ToString() == "UnityEngine.CapsuleCollider2D")
         {
             Vector3 direction = transform.position - collision.gameObject.GetComponent<CapsuleCollider2D>().transform.position;
-            if (Mathf.Round(direction.normalized.y * 100) * 0.01f < -0.75f || Mathf.Round(direction.normalized.y * 100) * 0.01f > 0.8f)
+            //Debug.Log(Mathf.Round(direction.normalized.y * 100) * 0.01f);
+            if (Mathf.Round(direction.normalized.y * 100) * 0.01f < -0.75f || Mathf.Round(direction.normalized.y * 100) * 0.01f > 0.75f)
             {
                 StartCoroutine("BreakGround");
             }

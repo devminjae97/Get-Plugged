@@ -314,4 +314,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickedSprite: {fileID: -4065222809543337464, guid: 1b18666452299d74a84e39d41bce9395, type: 3}
   buttonTrap: {fileID: 6836652787967620594}
+  NormalTile: {fileID: 2633615497239964894, guid: 8c5ad1d49095ee64d9a73e564ff31830, type: 3}
   trapSpeed: 10

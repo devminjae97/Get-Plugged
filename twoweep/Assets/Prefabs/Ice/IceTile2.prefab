@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4763504664561155222}
   - component: {fileID: 550639412150013572}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Airspace
   m_TagString: IceAirspace
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 4546075375571261732}
   - component: {fileID: 4974921143695653875}
   - component: {fileID: 804536481600371602}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: IceTile2
   m_TagString: Ice
   m_Icon: {fileID: 0}
