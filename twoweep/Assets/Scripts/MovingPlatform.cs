@@ -43,5 +43,16 @@ public class MovingPlatform : MonoBehaviour
         }        
         else
             transform.position = new Vector3(transform.position.x, transform.position.y - moveSpeed * Time.deltaTime,0);
-    } 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.CompareTag("Player")&&!isH)
+            collision.transform.SetParent(transform);
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player") && !isH)
+            collision.transform.SetParent(null);
+    }
 }
