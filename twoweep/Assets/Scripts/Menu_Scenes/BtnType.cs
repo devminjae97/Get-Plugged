@@ -80,8 +80,8 @@ public class BtnType : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
                 SceneManager.LoadScene("MainScene");
                 break;
             case buttonType.Quit:
-                // Application.Quit();
-                SceneManager.LoadScene("MainScene");
+                Application.Quit();
+                // SceneManager.LoadScene("MainScene");
                 break;
         }
 

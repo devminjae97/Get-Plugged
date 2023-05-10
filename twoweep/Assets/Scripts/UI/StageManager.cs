@@ -18,24 +18,13 @@ public class StageManager : MonoBehaviour
     private int stageReached;
     private int page;   // 0, 1, 2, ...
 
-
-
-    //public static int thisLevel;
-
     private void Awake()
     {
-
-        // for PlayerPrefs initialization code
-        //PlayerPrefs.DeleteAll();
-        // for PlayerPrefs testing code
-        //PlayerPrefs.SetInt("stageReached", 2);
         Init();
-        
     }
 
     private void Start()
     {
-        //buttons = FindObjectsOfType<Button>(); // not ordered
         SetPage(0);
         StartCoroutine("IEButtonDisabled");
     }
@@ -66,14 +55,15 @@ public class StageManager : MonoBehaviour
         {
             int s = page * 15 + i + 1;
 
-            buttons[i].GetComponent<StageButton>().SetNumber(s);
+            StageButton CurrentStageButton = buttons[i].GetComponent<StageButton>();
+            CurrentStageButton.SetNumber(s);
             
             if(s > numOfStages)
-                buttons[i].GetComponent<StageButton>().SetClear();
-            /*else if(s > stageReached)
-                buttons[i].GetComponent<StageButton>().Lock(true);*/
+                StageButton.SetClear();
+            else if(s > stageReached) // 6
+                CurrentStageButton.Lock(true);
             else
-                buttons[i].GetComponent<StageButton>().Lock(false);
+                CurrentStageButton.Lock(false);
         }
 
         if(page == 0)

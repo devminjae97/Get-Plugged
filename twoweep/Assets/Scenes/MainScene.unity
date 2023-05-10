@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e36ad2b0eb2fca4c99b8c7a4ecb024f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentType: 3
+  currentType: 4
   buttonScale_TR: {fileID: 1934941154}
   mainGroup: {fileID: 1016930714}
   keyGuideGroup: {fileID: 0}
